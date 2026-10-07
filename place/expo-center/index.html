@@ -13,6 +13,8 @@
 <meta property="og:description" content="つくばエキスポセンター(つくば市の科学館)。体験できる科学の展示が数十種類。2〜3時間は遊べる。子どもが興味を持ちそうな、体験型の科学の展示が数十種類あります。子ども連れで行って、2〜3時間は過ごせました。プラネタリウムでは、時期に合わせ…">
 <meta property="og:url" content="https://tsukuba-note.com/place/expo-center/">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1920px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Yomogi&display=swap" rel="stylesheet">
@@ -30,7 +32,9 @@
   /* 上の帯 */
   .top { position:sticky; top:0; z-index:1500; background:color-mix(in srgb, var(--bg) 50%, transparent); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
   .top .wrap { display:flex; align-items:center; gap:14px; padding-top:12px; padding-bottom:10px; flex-wrap:wrap; }
-  .logo { font-size:22px; font-weight:900; letter-spacing:.02em; }
+  .logo { font-size:22px; font-weight:900; letter-spacing:.02em; display:inline-flex; align-items:center; gap:.3em; line-height:1.2; white-space:nowrap; }
+  .logo svg { height:1.25em; width:auto; display:block; }
+  .logo b { font-weight:inherit; }
   .logo span { color:var(--accent); }
   .trial { font-size:11px; color:var(--sub); border:1px dashed var(--sub); border-radius:99px; padding:0 10px; }
   .menu { display:flex; gap:2px; margin-left:auto; flex-wrap:wrap; }

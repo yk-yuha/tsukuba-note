@@ -31,7 +31,7 @@ const PHOTOS = {
 window.SITE = {
   name: "つくばノート",
   nameNote: "",
-  logoHtml: "つくば<span>ノート</span>",
+  logoHtml: "<svg viewBox='0 0 64 36' aria-hidden='true'><circle cx='52' cy='9' r='5' fill='#e9643b'/><path d='M2 33 C12 30 18 16 23.5 10.5 Q26 8 28.5 10.5 C30.5 12.5 32 15 34.5 14 C37 13 38.5 7.5 41.5 6 Q44.5 4.5 47 8.5 C52 17 56 29 62 33' fill='none' stroke='#2f8f6b' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/></svg><b>つくば<span>ノート</span></b>",
   say: "つくばに住んでいます。",
   catchHtml: "行ってみて、調べてみて、<br><span class=\"mk\">たしかめたことだけ</span>書いています。",
   lead: "つくば市で子育てをしている住人のメモ帳です。お店のこと、移動のこと、週末のこと。少しずつ書き足しています。",
