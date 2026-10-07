@@ -188,6 +188,9 @@
   .nav button.navtell { width:100%; margin-top:14px; background:var(--accent); color:#fff; text-align:center; }
   @media (max-width:820px) {
     .burger { display:block; }
+    .top { position:sticky; top:0; z-index:1500; background:var(--bg); }
+    .top .wrap { padding-top:10px; padding-bottom:8px; }
+    .nav { margin-bottom:12px; max-height:calc(100vh - 90px); overflow:auto; }
     .wrap { padding:0 16px; }
     .menu { display:none; }
     .tiles, .cards { grid-template-columns:1fr 1fr; gap:16px 14px; }
@@ -214,7 +217,7 @@
   </div>
   <nav class="nav" id="nav" hidden></nav>
 </div>
-<div id="view"><div class="wrap"><h1>つくばノート</h1><p>つくば市で子育てをしている住人のメモ帳です。お店のこと、移動のこと、週末のこと。少しずつ書き足しています。</p><h2>知りたいことから探す</h2><ul><li><a href="kaimono/">スーパー・買い物</a></li><li><a href="inshoku/">ごはん・おやつ</a></li><li><a href="kengaku/">見る・学ぶ</a></li><li><a href="koen/">公園</a></li><li><a href="ofuro/">おふろ</a></li><li><a href="narai/">習いごと</a></li><li><a href="event/">イベント</a></li><li><a href="tochi/">土地のこと</a></li><li><a href="yoru/">夜のおでかけ</a></li></ul><h2>どんな人ですか?</h2><ul><li><a href="for/kosodate/">子育て中の方</a> ふだんの買い物、子連れの外食、週末のイベント</li><li><a href="for/tennyu/">転入を考えている方</a> 車なしで暮らせるか、買い物、土地のこと</li><li><a href="for/asobi/">遊びに来る方</a> 食事、イベント、移動のしかた</li></ul></div></div>
+<div id="view"><div class="wrap"><h1>つくばノート</h1><p>つくば市で子育てをしている住人のメモ帳です。お店のこと、移動のこと、週末のこと。少しずつ書き足しています。</p><h2>知りたいことから探す</h2><ul><li><a href="kaimono/">スーパー・買い物</a></li><li><a href="inshoku/">ごはん・おやつ</a></li><li><a href="kengaku/">見る・学ぶ</a></li><li><a href="koen/">公園</a></li><li><a href="ofuro/">おふろ</a></li><li><a href="narai/">習いごと</a></li><li><a href="event/">イベント</a></li><li><a href="tochi/">土地のこと</a></li><li><a href="yoru/">夜のおでかけ</a></li></ul><h2>あなたに合わせて探す</h2><ul><li><a href="for/kosodate/">子育て中の方</a> ふだんの買い物、子連れの外食、週末のイベント</li><li><a href="for/tennyu/">転入を考えている方</a> 車なしで暮らせるか、買い物、土地のこと</li><li><a href="for/asobi/">遊びに来る方</a> 食事、イベント、移動のしかた</li></ul></div></div>
 <dialog id="dlg"></dialog>
 <footer>
   <div class="wrap">
@@ -340,7 +343,7 @@ function home() {
     <div class="watch">${S.watch.map((w) => `<div class="w"><span class="when">${esc(w.when)}</span><h4>${esc(w.title)}</h4><p>${esc(w.body)}</p>${w.link ? `<a href="${esc(w.link)}" target="_blank" rel="noopener">${esc(w.linkLabel)} →</a>` : ""}</div>`).join("")}</div></div></section>
   ${odekakeBox()}
   <section><div class="wrap">${liveBox()}</div></section>
-  <section><div class="wrap"><h2><span class="mk">どんな人ですか?</span></h2><p class="h2note">あてはまるところから、どうぞ。</p>
+  <section><div class="wrap"><h2><span class="mk">あなたに合わせて探す</span></h2><p class="h2note">あてはまるところから、どうぞ。</p>
     <div class="tiles">${S.readers.map((r) => tile(link("for/" + r.id + "/"), r.photo, r.label, r.note)).join("")}</div></div></section>
   <section><div class="wrap"><h2><span class="mk">知りたいことから探す</span></h2><p class="h2note">少しずつ書き足しています。</p>
     <div class="tiles">${S.categories.map((c) => tile(link(c.id + "/"), c.photo, c.emoji + " " + c.label, "", c.ready ? (S.places.filter((x) => x.cat === c.id).length + S.tips.filter((x) => x.cat === c.id).length) + "件のメモ" : "じゅんび中", !c.ready)).join("")}</div></div></section>
@@ -391,7 +394,7 @@ function closeNav() { $("nav").hidden = true; $("burger").setAttribute("aria-exp
 function render(keepScroll) {
   $("menu").innerHTML = S.categories.map((c) => `<a href="${link(c.id + "/")}" class="${state.cat === c.id ? "on" : ""}">${esc(c.label)}</a>`).join("");
   $("nav").innerHTML = `<div class="nl hand">知りたいことから探す</div><div class="ng">${S.categories.map((c) => `<a href="${link(c.id + "/")}" class="${state.cat === c.id ? "on" : ""}">${esc(c.emoji)} ${esc(c.label)}</a>`).join("")}</div>
-    <div class="nl hand">どんな人ですか?</div><div class="ng">${S.readers.map((r) => `<a href="${link("for/" + r.id + "/")}" class="${!state.cat && state.reader === r.id ? "on" : ""}">${esc(r.label)}</a>`).join("")}</div>
+    <div class="nl hand">あなたに合わせて探す</div><div class="ng">${S.readers.map((r) => `<a href="${link("for/" + r.id + "/")}" class="${!state.cat && state.reader === r.id ? "on" : ""}">${esc(r.label)}</a>`).join("")}</div>
     <button class="navtell" id="navtell" type="button">つくばの情報を送る</button>`;
   $("navtell").onclick = () => { closeNav(); openTell(); };
   closeNav();
