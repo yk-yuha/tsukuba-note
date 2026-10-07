@@ -236,17 +236,19 @@ const parseRoute = (r) => { const a = String(r || "").split("/").filter(Boolean)
 const readRoute = () => Object.assign({ cat: null, reader: null, place: null }, parseRoute(window.ROUTE !== undefined ? window.ROUTE : location.hash.slice(2)));
 let state = readRoute(), map = null;
 const match = (x) => (!state.cat || x.cat === state.cat) && (!state.reader || x.readers.includes(state.reader));
+const psrc = (ph) => ph.own ? (ROOT === undefined ? "" : ROOT) + ph.src : ph.src;
+const pcred = (ph) => ph.own ? `写真: ${esc(ph.what)}(つくばノート撮影)` : `写真: ${esc(ph.what)} / ${esc(ph.by)} (${esc(ph.lic)})`;
 const catOf = (id) => S.categories.find((c) => c.id === id);
 
 function tile(href, photo, title, note, badge, soon) {
-  return `<a class="tile" href="${href}">${P[photo] ? `<img src="${P[photo].src}" alt="${esc(P[photo].what)}" loading="lazy">` : `<div class="noimg">${esc(title.split(" ")[0])}</div>`}
+  return `<a class="tile" href="${href}">${P[photo] ? `<img src="${psrc(P[photo])}" alt="${esc(P[photo].what)}" loading="lazy">` : `<div class="noimg">${esc(title.split(" ")[0])}</div>`}
     ${badge ? `<span class="badge ${soon ? "soon" : ""}">${esc(badge)}</span>` : ""}
     <div class="ttl">${esc(title)}</div>${note ? `<div class="nt">${esc(note)}</div>` : ""}</a>`;
 }
 
 function card(p) {
   const ph = P[p.photo];
-  return `<a class="card" href="${link("place/" + p.id + "/")}"><div class="pic">${ph ? `<img src="${ph.src}" alt="${esc(ph.what)}" loading="lazy">` : esc(catOf(p.cat).emoji)}
+  return `<a class="card" href="${link("place/" + p.id + "/")}"><div class="pic">${ph ? `<img src="${psrc(ph)}" alt="${esc(ph.what)}" loading="lazy">` : esc(catOf(p.cat).emoji)}
     <span class="kind">${esc(p.kind)}</span>${p.text ? `<span class="voicemark hand">ひとこと</span>` : ""}</div>
     <div class="b"><h3>${esc(p.name)}</h3><div class="sum">${esc(p.sum)}</div></div></a>`;
 }
@@ -278,7 +280,7 @@ function openTell() {
 function placeBody(p) {
   const ph = P[p.photo];
   const list = (cls, arr) => `<ul class="${cls}">${arr.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
-  return `<div class="dpic${ph ? "" : " none"}">${ph ? `<img src="${ph.src}" alt="${esc(ph.what)}"><span class="pc">写真: ${esc(ph.what)} / ${esc(ph.by)} (${esc(ph.lic)})</span>` : `${esc(catOf(p.cat).emoji)}<span class="nophoto">写真は、これから撮ります</span>`}</div>
+  return `<div class="dpic${ph ? "" : " none"}">${ph ? `<img src="${psrc(ph)}" alt="${esc(ph.what)}"><span class="pc">${pcred(ph)}</span>` : `${esc(catOf(p.cat).emoji)}<span class="nophoto">写真は、これから撮ります</span>`}</div>
     <div class="dbody"><h1><span class="mk">${esc(p.name)}</span></h1>
       <div class="tags">${[p.kind, ...p.tags].map((t) => `<span>${esc(t)}</span>`).join("")}</div>
       ${p.text ? `<div class="voice"><div class="lbl v hand">住人のひとこと</div>${esc(p.text)}</div>` : ""}
@@ -410,7 +412,7 @@ if (ROOT === undefined) window.addEventListener("hashchange", () => { state = re
 $("dlg").addEventListener("click", (e) => { if (e.target === $("dlg")) $("dlg").close(); });
 $("upd").textContent = S.updated;
 const LIC = { "CC BY-SA 3.0": "https://creativecommons.org/licenses/by-sa/3.0/", "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/", "CC BY 2.0": "https://creativecommons.org/licenses/by/2.0/", "CC BY 3.0": "https://creativecommons.org/licenses/by/3.0/", "CC0": "https://creativecommons.org/publicdomain/zero/1.0/" };
-$("credits").innerHTML = "写真(ウィキメディア・コモンズより): " + Object.values(P).map((p) => `<a href="${p.page}" target="_blank" rel="noopener">${esc(p.what)}</a> ${esc(p.by)} / ${LIC[p.lic] ? `<a href="${LIC[p.lic]}" target="_blank" rel="noopener">${esc(p.lic)}</a>` : esc(p.lic)}`).join(" ・ ") + '。写真は、画面に合わせて一部を切り抜いて表示しています。それぞれの写真は、元と同じライセンスで利用できます。 ・ 地図: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>';
+$("credits").innerHTML = "写真(ウィキメディア・コモンズより): " + Object.values(P).filter((p) => !p.own).map((p) => `<a href="${p.page}" target="_blank" rel="noopener">${esc(p.what)}</a> ${esc(p.by)} / ${LIC[p.lic] ? `<a href="${LIC[p.lic]}" target="_blank" rel="noopener">${esc(p.lic)}</a>` : esc(p.lic)}`).join(" ・ ") + '。写真は、画面に合わせて一部を切り抜いて表示しています。それぞれの写真は、元と同じライセンスで利用できます。「つくばノート撮影」と書いた写真は、このサイトで撮ったものです。 ・ 地図: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>';
 render();
 </script>
 </body>
