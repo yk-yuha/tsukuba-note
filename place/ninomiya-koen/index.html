@@ -171,7 +171,23 @@
   footer { margin-top:88px; padding:36px 0 44px; font-size:13px; color:var(--sub); border-top:3px dotted var(--soft); }
   .credits { margin-top:14px; font-size:11px; line-height:1.9; }
 
+  /* 三本線のメニュー(せまい画面で出す) */
+  .burger { display:none; margin-left:auto; width:44px; height:44px; border-radius:50%; background:var(--paper); box-shadow:0 2px 8px rgba(90,60,30,.12); position:relative; }
+  .burger span { position:absolute; left:12px; right:12px; height:2.5px; border-radius:2px; background:var(--ink); transition:transform .2s, opacity .2s; }
+  .burger span:nth-child(1) { top:15px; } .burger span:nth-child(2) { top:21px; } .burger span:nth-child(3) { top:27px; }
+  .burger[aria-expanded="true"] span:nth-child(1) { transform:translateY(6px) rotate(45deg); }
+  .burger[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+  .burger[aria-expanded="true"] span:nth-child(3) { transform:translateY(-6px) rotate(-45deg); }
+  .burger:focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+  .nav { margin:4px 16px 0; background:var(--paper); border-radius:20px; box-shadow:0 12px 28px rgba(90,60,30,.16); padding:16px 18px 18px; }
+  .nav .nl { font-size:15px; color:var(--accent); margin:10px 0 4px; }
+  .nav .nl:first-child { margin-top:0; }
+  .nav .ng { display:grid; grid-template-columns:1fr 1fr; gap:6px 10px; }
+  .nav a, .nav button.navtell { display:block; text-decoration:none; padding:8px 8px; border-radius:12px; background:var(--soft); font-size:clamp(12px,3.4vw,14px); font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .nav a.on { background:var(--ink); color:#fff; }
+  .nav button.navtell { width:100%; margin-top:14px; background:var(--accent); color:#fff; text-align:center; }
   @media (max-width:820px) {
+    .burger { display:block; }
     .wrap { padding:0 16px; }
     .menu { display:none; }
     .tiles, .cards { grid-template-columns:1fr 1fr; gap:16px 14px; }
@@ -189,7 +205,9 @@
   <div class="wrap">
     <a class="logo" id="logo"></a>
     <div class="menu" id="menu"></div>
+    <button class="burger" id="burger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   </div>
+  <nav class="nav" id="nav" hidden></nav>
 </div>
 <div id="view"><div class="wrap"><p><a href="../../koen/">公園</a></p><h1>二の宮公園</h1><p>芝生広場と、夏の屋外プールがある公園</p><h2>知っていると、ちょっといい</h2><ul><li>芝生広場がある</li><li>屋外プール(25m・子供用・幼児用)</li><li>テニスコート6面</li></ul><h2>知っておくこと</h2><ul><li>プールは7月1日〜8月31日。2時間で一般220円、中学生以下110円</li><li>駐車場は85台で有料(20分まで無料、1時間まで100円、3時間まで200円)</li></ul><p><a href="https://www.city.tsukuba.lg.jp/shisetsu/kouensports/kouen/1002829.html">つくば市の公式ページ</a></p><p>確かめた時期: 2026年10月7日(つくば市の公式ページで確認)</p></div></div>
 <dialog id="dlg"></dialog>
@@ -361,8 +379,15 @@ function drawMap() {
   map.fitBounds(pins.map(({ s }) => [s.lat, s.lng]), { padding: [40, 40], maxZoom: 15 });
 }
 
+function closeNav() { $("nav").hidden = true; $("burger").setAttribute("aria-expanded", "false"); $("burger").setAttribute("aria-label", "メニューを開く"); }
+
 function render(keepScroll) {
   $("menu").innerHTML = S.categories.map((c) => `<a href="${link(c.id + "/")}" class="${state.cat === c.id ? "on" : ""}">${esc(c.label)}</a>`).join("");
+  $("nav").innerHTML = `<div class="nl hand">知りたいことから探す</div><div class="ng">${S.categories.map((c) => `<a href="${link(c.id + "/")}" class="${state.cat === c.id ? "on" : ""}">${esc(c.emoji)} ${esc(c.label)}</a>`).join("")}</div>
+    <div class="nl hand">どんな人ですか?</div><div class="ng">${S.readers.map((r) => `<a href="${link("for/" + r.id + "/")}" class="${!state.cat && state.reader === r.id ? "on" : ""}">${esc(r.label)}</a>`).join("")}</div>
+    <button class="navtell" id="navtell" type="button">つくばの情報を送る</button>`;
+  $("navtell").onclick = () => { closeNav(); openTell(); };
+  closeNav();
   $("view").innerHTML = state.place ? placePage() : state.cat ? catPage() : state.reader ? readerPage() : home();
   // 分野のページの中での絞りこみ(子育て中の方、など)は、ページを移らずに切りかえる
   $("view").querySelectorAll("button[data-reader]").forEach((b) => b.onclick = () => { state = { cat: state.cat, reader: b.dataset.reader || null, place: null }; render(true); });
@@ -374,6 +399,13 @@ function render(keepScroll) {
 
 $("logo").innerHTML = S.logoHtml;
 $("logo").href = link("");
+$("burger").onclick = () => {
+  const open = $("nav").hidden;
+  $("nav").hidden = !open;
+  $("burger").setAttribute("aria-expanded", String(open));
+  $("burger").setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+};
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeNav(); });
 if (ROOT === undefined) window.addEventListener("hashchange", () => { state = readRoute(); render(); });
 $("dlg").addEventListener("click", (e) => { if (e.target === $("dlg")) $("dlg").close(); });
 $("upd").textContent = S.updated;
