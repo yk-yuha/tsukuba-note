@@ -146,6 +146,13 @@
   .mailbox .copy { font:inherit; font-size:12px; font-weight:700; border:2px solid var(--ink); background:transparent; color:var(--ink); border-radius:999px; padding:4px 12px; cursor:pointer; }
   .policy { margin-top:18px; font-size:12.5px; color:var(--sub); border-top:2px dotted var(--soft); padding-top:12px; }
   .policy ul { margin:4px 0 12px; padding-left:18px; }
+  .odekake { display:flex; flex-direction:column; gap:10px; }
+  .odekake .o { display:flex; gap:14px; align-items:baseline; background:var(--paper); border-radius:16px; padding:12px 18px; box-shadow:var(--sh); }
+  .odekake .when { flex:0 0 auto; min-width:7.5em; font-weight:900; color:var(--accent); font-size:14px; }
+  .odekake h4 { margin:0; font-size:16px; line-height:1.5; }
+  .odekake h4 small { font-size:12px; font-weight:700; color:var(--good); margin-left:6px; }
+  .odekake p { margin:2px 0 0; font-size:13px; color:var(--sub); }
+  @media (max-width:560px) { .odekake .o { flex-direction:column; gap:2px; } }
   .checked { font-size:12px; color:var(--sub); margin-top:12px; border-top:2px dotted var(--soft); padding-top:10px; }
 
   footer { margin-top:88px; padding:36px 0 44px; font-size:13px; color:var(--sub); border-top:3px dotted var(--soft); }
@@ -248,6 +255,14 @@ function openPlace(i) {
   $("dlg").showModal();
 }
 
+function odekakeBox() {
+  const d = new Date(), today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const items = (S.odekake || []).filter((o) => o.end >= today).slice(0, 6);
+  if (!items.length) return "";
+  return `<section><div class="wrap"><h2 class="hand" style="font-size:26px">今週末、どこ行く?</h2><p class="h2note">近いうちに行ける、おでかけ先を少しだけ。新しい予定は、見つけしだい足します。</p>
+    <div class="odekake">${items.map((o) => `<div class="o"><span class="when">${esc(o.when)}</span><div><h4>${esc(o.title)}${o.note ? ` <small>${esc(o.note)}</small>` : ""}</h4><p>${esc(o.place)}${o.link ? ` ・ <a href="${esc(o.link)}" target="_blank" rel="noopener">${esc(o.linkLabel)} →</a>` : ""}</p></div></div>`).join("")}</div></div></section>`;
+}
+
 function liveBox() {
   if (!LIVE) return "";
   const fmt = (d) => { const [, m, day] = d.split("-"); return `${+m}/${+day}`; };
@@ -259,13 +274,11 @@ function liveBox() {
   const event = y.filter((i) => /開催|ツアー|ハイク|まつり|祭/.test(i.title)).slice(0, 3);
   const yrow = (icon, label, items) => items.length ? `<div class="yrow"><div class="yl">${icon} ${label}</div><div>${items.join("<br>")}</div></div>` : "";
   const dated = (i) => `${link(i)} <small>(${fmt(i.date)})</small>`;
-  return `<div class="live"><h2><span class="dot"></span>いま、つくばで</h2>
-      <ul>${now.map((i) => `<li><span class="d">${fmt(i.date)}</span><span>${link(i)} <small style="color:var(--sub)">— ${esc(i.src)}</small></span></li>`).join("")}</ul></div>
-    <details class="yama"><summary><b>⛰ つくば山情報</b><span class="one">${esc(S.yama.one)}</span></summary>
+  return `<details class="yama"><summary><b>⛰ つくば山情報</b><span class="one">${esc(S.yama.one)}</span></summary>
       ${yrow("🍁", "今の見どころ", S.yama.season.map((x) => esc(x.text) + (x.note ? ` <small class="chk">(${esc(x.note)})</small>` : "")))}
       ${yrow("🚡", "運行", unko.map(dated))}${yrow("📢", "お知らせ", oshirase.map(dated))}${yrow("🎪", "イベント", event.map(dated))}
       <div style="height:10px"></div></details>
-    <div class="src">${LIVE.sources.map(esc).join("、")}の新着情報より(${esc(LIVE.fetched)}に取得)</div>`;
+    <div class="src">運行・お知らせ・イベントは、筑波観光鉄道とつくば観光コンベンション協会の新着情報より(${esc(LIVE.fetched)}に取得)</div>`;
 }
 
 function home() {
@@ -273,9 +286,10 @@ function home() {
   return `<div class="wrap"><div class="hero"><div class="ph" style="background-image:url('${p.src}')"></div>
       <div class="credit">写真: ${esc(p.what)} / ${esc(p.by)} (${esc(p.lic)})</div>
       <div class="box"><div class="sticker hand">住人が<br>書いてます</div><div class="say hand">${esc(S.say)}</div><h1>${S.catchHtml}</h1><p>${esc(S.lead)}</p></div></div></div>
-  <section><div class="wrap">${liveBox()}</div></section>
-  <section><div class="wrap"><h2 class="hand" style="font-size:26px">住人が、いま気になっていること</h2><p class="h2note">自分が気になって、チェックしているものです。</p>
+  <section><div class="wrap"><h2 class="hand" style="font-size:26px">住人が見つけた、つくばの話</h2><p class="h2note">自分が気になって、チェックしているものです。</p>
     <div class="watch">${S.watch.map((w) => `<div class="w"><span class="when">${esc(w.when)}</span><h4>${esc(w.title)}</h4><p>${esc(w.body)}</p>${w.link ? `<a href="${esc(w.link)}" target="_blank" rel="noopener">${esc(w.linkLabel)} →</a>` : ""}</div>`).join("")}</div></div></section>
+  ${odekakeBox()}
+  <section><div class="wrap">${liveBox()}</div></section>
   <section><div class="wrap"><h2><span class="mk">どんな人ですか?</span></h2><p class="h2note">あてはまるところから、どうぞ。</p>
     <div class="tiles">${S.readers.map((r) => tile(`data-reader="${r.id}"`, r.photo, r.label, r.note)).join("")}</div></div></section>
   <section><div class="wrap"><h2><span class="mk">知りたいことから探す</span></h2><p class="h2note">少しずつ書き足しています。</p>

@@ -47,6 +47,16 @@ window.SITE = {
       link: "https://prtimes.jp/main/html/rd/p/000006114.000007505.html", linkLabel: "運営会社の発表" },
   ],
 
+  odekake: [
+    { end: "2026-10-17", when: "10月17日(土)", title: "0歳からの・はじめてのオーケストラ", place: "ノバホール 小ホール", note: "小学生以上2,000円、0歳から未就学児1,000円", link: "https://www.tcf.or.jp/exhibition/", linkLabel: "ノバホールのイベント案内" },
+    { end: "2026-10-25", when: "10月25日(日)", title: "トナリエハロウィン2026", place: "トナリエつくばスクエア(つくば駅前)", note: "", link: "https://tonarie-tsukuba.jp/event/", linkLabel: "施設のイベント案内" },
+    { end: "2026-11-03", when: "11月3日(火・祝)", title: "筑波実験植物園が、だれでも無料の日", place: "筑波実験植物園(つくば植物園)", note: "文化の日は入園無料", link: "https://tbg.kahaku.go.jp/riyou/nyuen.html", linkLabel: "植物園の公式ページ" },
+    { end: "2026-11-15", when: "11月14日(土)・15日(日)", title: "つくば市民文化祭「第48回ノバホール音楽会」", place: "ノバホール", note: "無料", link: "https://www.tcf.or.jp/exhibition/", linkLabel: "ノバホールのイベント案内" },
+    { end: "2026-11-28", when: "11月28日(土)", title: "JAXA 筑波宇宙センターの特別公開", place: "JAXA 筑波宇宙センター", note: "", link: "https://visit-tsukuba.jaxa.jp/", linkLabel: "JAXAの公式サイト" },
+    { end: "2026-12-12", when: "12月12日(土)", title: "ガマムジカ・アンサンブル 冬の演奏会", place: "ノバホール 小ホール", note: "無料", link: "https://www.tcf.or.jp/exhibition/", linkLabel: "ノバホールのイベント案内" },
+    { end: "2026-12-13", when: "12月13日(日)", title: "筑波大学吹奏楽団 第96回定期演奏会", place: "ノバホール", note: "無料", link: "https://www.tcf.or.jp/exhibition/", linkLabel: "ノバホールのイベント案内" },
+  ],
+
   readers: [
     { id: "kosodate", label: "子育て中の方", note: "ふだんの買い物、子連れの外食、週末のイベント", photo: "park" },
     { id: "tennyu", label: "転入を考えている方", note: "車なしで暮らせるか、買い物、土地のこと", photo: "gakuen" },
