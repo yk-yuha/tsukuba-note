@@ -81,7 +81,7 @@
   details.yama summary .one { color:var(--sub); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1; }
   details.yama summary::after { content:"＋"; color:var(--good); font-weight:900; }
   details.yama[open] summary::after { content:"－"; }
-  .yrow { display:grid; grid-template-columns:6.4em 1fr; gap:8px; padding:8px 0; border-top:2px dotted #d5e6d5; font-size:13px; line-height:1.65; }
+  .yrow { display:grid; grid-template-columns:8.6em 1fr; gap:8px; padding:8px 0; border-top:2px dotted #d5e6d5; font-size:13px; line-height:1.65; }
   .yrow .yl { font-weight:700; white-space:nowrap; }
   .yrow small { color:var(--sub); } .yrow .chk { color:var(--care); }
   .src { font-size:12px; color:var(--sub); margin-top:10px; }
@@ -197,6 +197,7 @@
     .sticker { width:84px; height:84px; font-size:12px; right:10px; top:-34px; }
     section { padding-top:44px; }
     details.yama summary .one { display:none; }
+    .yrow { grid-template-columns:1fr; gap:2px; }
     .hero .say { padding-right:70px; }
     .credit { left:14px; right:auto; top:calc(min(58vh,480px) - 82px); }
     .card .pic { font-size:34px; align-items:end; padding-bottom:8px; }
