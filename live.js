@@ -5,7 +5,7 @@ window.LIVE = {
   "つくば観光コンベンション協会",
   "筑波観光鉄道(ケーブルカー・ロープウェイ)"
  ],
- "fetched": "2026-10-07",
+ "fetched": "2026-10-08",
  "items": [
   {
    "date": "2026-10-04",
@@ -95,12 +95,6 @@ window.LIVE = {
    "date": "2026-09-01",
    "title": "地域交流センター講座",
    "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/shimimbuchiikisiennka/gyomuannai/2/1005035.html",
-   "src": "つくば市"
-  },
-  {
-   "date": "2026-08-23",
-   "title": "市内中小企業による技術展示会「Tsukuba Lab. Meetup in AIST」",
-   "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/keizaibusangyoshinkoka/gyomuannai/2/13909.html",
    "src": "つくば市"
   }
  ]
