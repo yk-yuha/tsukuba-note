@@ -70,15 +70,15 @@ window.SITE = {
   ],
 
   categories: [
-    { id: "kaimono", emoji: "🛒", label: "スーパー・買い物", en: "Shopping", ready: true, photo: "creo" },
-    { id: "inshoku", emoji: "🍜", label: "ごはん・おやつ", en: "Eat", ready: true, photo: "qt" },
-    { id: "kengaku", emoji: "🚀", label: "見る・学ぶ", en: "Visit", ready: true, photo: "jaxa" },
-    { id: "koen", emoji: "🌳", label: "公園", en: "Parks", ready: true, photo: "park" },
-    { id: "ofuro", emoji: "♨", label: "おふろ", en: "Bath", ready: true, photo: null },
-    { id: "narai", emoji: "🎽", label: "習いごと", en: "Lessons", ready: true, photo: null },
-    { id: "event", emoji: "🎪", label: "イベント", en: "Events", ready: true, photo: "matsuri" },
-    { id: "tochi", emoji: "🏡", label: "土地のこと", en: "Land", ready: true, photo: "yama" },
-    { id: "yoru", emoji: "🌙", label: "夜のおでかけ", en: "Night", ready: true, photo: "night" },
+    { id: "kaimono", memo: "買い物で、知っておくといいこと", emoji: "🛒", label: "スーパー・買い物", en: "Shopping", ready: true, photo: "creo" },
+    { id: "inshoku", memo: "外で食べるとき、知っておくといいこと", emoji: "🍜", label: "ごはん・おやつ", en: "Eat", ready: true, photo: "qt" },
+    { id: "kengaku", memo: "見学に行く前に、知っておくといいこと", emoji: "🚀", label: "見る・学ぶ", en: "Visit", ready: true, photo: "jaxa" },
+    { id: "koen", memo: "公園で遊ぶ前に、知っておくといいこと", emoji: "🌳", label: "公園", en: "Parks", ready: true, photo: "park" },
+    { id: "ofuro", memo: "おふろに行く前に、知っておくといいこと", emoji: "♨", label: "おふろ", en: "Bath", ready: true, photo: null },
+    { id: "narai", memo: "習いごとを探すとき、知っておくといいこと", emoji: "🎽", label: "習いごと", en: "Lessons", ready: true, photo: null },
+    { id: "event", memo: "イベントに行く前に、知っておくといいこと", emoji: "🎪", label: "イベント", en: "Events", ready: true, photo: "matsuri" },
+    { id: "tochi", memo: "土地を探す前に、知っておくといいこと", emoji: "🏡", label: "土地のこと", en: "Land", ready: true, photo: "yama" },
+    { id: "yoru", memo: "夜に出かけるとき、知っておくといいこと", emoji: "🌙", label: "夜のおでかけ", en: "Night", ready: true, photo: "night" },
   ],
 
   places: [

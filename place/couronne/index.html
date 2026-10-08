@@ -360,7 +360,7 @@ function mapBlock(places) {
   return places.some((p) => p.spots) ? `<section><div class="wrap"><h2><span class="mk">地図で見る</span></h2><p class="h2note">ピンは、公式の住所から求めた位置です(建物の位置と少しずれることがあります)。</p><div id="map"></div></div></section>` : "";
 }
 
-const memoBlock = (tips) => tips.length ? `<section><div class="wrap"><h2 class="hand">住んでみて思うこと</h2><p class="h2note"></p><div class="memo">${tips.map((t) => `<div class="item"><h4>${esc(t.title)}</h4>${esc(t.body)}${t.points ? `<ul class="tpoints">${t.points.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${t.note ? `<div class="tnote">${esc(t.note)}</div>` : ""}${t.links ? `<div class="links">${t.links.map((l) => `<a class="go" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} →</a>`).join("")}</div>` : ""}</div>`).join("")}</div></div></section>` : "";
+const memoBlock = (tips, head) => tips.length ? `<section><div class="wrap"><h2 class="hand">${esc(head || "住んでみて思うこと")}</h2><p class="h2note"></p><div class="memo">${tips.map((t) => `<div class="item"><h4>${esc(t.title)}</h4>${esc(t.body)}${t.points ? `<ul class="tpoints">${t.points.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${t.note ? `<div class="tnote">${esc(t.note)}</div>` : ""}${t.links ? `<div class="links">${t.links.map((l) => `<a class="go" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} →</a>`).join("")}</div>` : ""}</div>`).join("")}</div></div></section>` : "";
 
 function readerPage() {
   const r = S.readers.find((x) => x.id === state.reader), places = S.places.filter(match);
@@ -378,7 +378,7 @@ function catPage() {
     ${c.ready ? `<div class="chips"><button data-reader="" class="${state.reader ? "" : "on"}">ぜんぶ</button>${S.readers.map((x) => `<button data-reader="${x.id}" class="${state.reader === x.id ? "on" : ""}">${esc(x.label)}</button>`).join("")}</div>` : ""}</div></div>`;
   if (!c.ready) return html + `<section><div class="wrap"><div class="soonbox hand">ここは、じゅんび中です。<br>書けることがたまったら載せます。</div></div></section>`;
   html += `<section style="padding-top:28px"><div class="wrap">${places.length ? `<div class="cards">${places.map(card).join("")}</div>` : S.tips.filter(match).length ? "" : `<div class="soonbox hand">まだ書けていません。</div>`}</div></section>`;
-  return html + memoBlock(S.tips.filter(match)) + mapBlock(places);
+  return html + memoBlock(S.tips.filter(match), c.memo) + mapBlock(places);
 }
 
 function drawMap() {
