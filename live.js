@@ -62,12 +62,6 @@ window.LIVE = {
    "src": "筑波観光鉄道"
   },
   {
-   "date": "2026-09-10",
-   "title": "第37回筑波山クリーンハイクのご案内",
-   "url": "https://mt-tsukuba.com/%e7%ac%ac36%e5%9b%9e%e7%ad%91%e6%b3%a2%e5%b1%b1%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%8f%e3%82%a4%e3%82%af%e3%81%ae%e3%81%94%e6%a1%88%e5%86%85/",
-   "src": "筑波観光鉄道"
-  },
-  {
    "date": "2026-09-07",
    "title": "WEB版「月刊ezpress.9月号」公開",
    "url": "https://ttca.jp/web%e7%89%88%e3%80%8c%e6%9c%88%e5%88%8aezpress-9%e6%9c%88%e5%8f%b7%e3%80%8d%e5%85%ac%e9%96%8b/",
