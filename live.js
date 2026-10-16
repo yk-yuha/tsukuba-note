@@ -5,7 +5,7 @@ window.LIVE = {
   "つくば観光コンベンション協会",
   "筑波観光鉄道(ケーブルカー・ロープウェイ)"
  ],
- "fetched": "2026-10-16",
+ "fetched": "2026-10-17",
  "items": [
   {
    "date": "2026-10-04",
@@ -84,12 +84,6 @@ window.LIVE = {
    "title": "筑波山神社 観月祭 （令和8年9月26日(土)）",
    "url": "https://ttca.jp/%e7%ad%91%e6%b3%a2%e5%b1%b1%e7%a5%9e%e7%a4%be%e3%80%80%e8%a6%b3%e6%9c%88%e7%a5%ad%e3%80%80%ef%bc%88%e4%bb%a4%e5%92%8c8%e5%b9%b49%e6%9c%8826%e6%97%a5%e5%9c%9f%ef%bc%89/",
    "src": "観光コンベンション協会"
-  },
-  {
-   "date": "2026-09-01",
-   "title": "地域交流センター講座",
-   "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/shimimbuchiikisiennka/gyomuannai/2/1005035.html",
-   "src": "つくば市"
   }
  ]
 };
