@@ -60,6 +60,31 @@ def when(el):
     return None
 
 
+EVENT_WORDS = re.compile(r"開催|ツアー|ハイク|まつり|祭|イベント|コンサート|演奏会|マルシェ|フェス")
+EVENT_DATE_LABEL = re.compile(r"(?:日程|開催日|日時|期日|とき)\s*[:：]?\s*(?:令和\d+年|20\d\d年)?\s*(\d{1,2})月(\d{1,2})日")
+
+
+def event_date(title, link, published):
+    """イベントの日を見つける(過ぎたイベントをサイトに出さないため)。
+    題名に日付があれば、サイトの側で読む。ないときだけ、ページの「日程」「開催日」などの行を読む。
+    見つからなければ空(サイトの側で、発表から3週間で外す)。"""
+    if re.search(r"\d{1,2}月\d{1,2}日|\d{1,2}/\d{1,2}", title.translate(str.maketrans("０１２３４５６７８９", "0123456789"))):
+        return ""
+    try:
+        page = fetch(link).decode("utf-8", "ignore")
+    except Exception:
+        return ""
+    page = re.sub(r"<script.*?</script>|<style.*?</style>", "", page, flags=re.S)
+    page = re.sub(r"<[^>]+>", " ", page).translate(str.maketrans("０１２３４５６７８９：", "0123456789:"))
+    m = EVENT_DATE_LABEL.search(page)
+    if not m:
+        return ""
+    d = datetime(published.year, int(m.group(1)), int(m.group(2)), tzinfo=JST)
+    if d < published - timedelta(days=60):  # 年をまたぐ催し(12月の発表で1月の日付など)
+        d = d.replace(year=d.year + 1)
+    return d.strftime("%Y-%m-%d")
+
+
 def main(out):
     now = datetime.now(JST)
     items, failed = [], []
@@ -81,7 +106,12 @@ def main(out):
                 continue
             if src == "つくば市" and (CITY_DROP.search(title) or not CITY_KEEP.search(title)):
                 continue
-            items.append({"date": d.strftime("%Y-%m-%d"), "title": re.sub(r"\s+", " ", title), "url": link, "src": src})
+            item = {"date": d.strftime("%Y-%m-%d"), "title": re.sub(r"\s+", " ", title), "url": link, "src": src}
+            if EVENT_WORDS.search(title):
+                ev = event_date(title, link, d)
+                if ev:
+                    item["eventDate"] = ev
+            items.append(item)
     if failed:
         print("取れなかった新着:", failed)
     if not items:

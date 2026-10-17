@@ -337,12 +337,27 @@ function liveBox() {
   const now = LIVE.items.filter((i) => !isYama(i)).slice(0, 5), y = LIVE.items.filter(isYama);
   const unko = y.filter((i) => /運行/.test(i.title)).slice(0, 1);
   const oshirase = y.filter((i) => /運賃|新車両|料金|運休/.test(i.title) && !/運行につきまして/.test(i.title)).slice(0, 2);
-  const event = y.filter((i) => /開催|ツアー|ハイク|まつり|祭/.test(i.title)).slice(0, 3);
+  // 過ぎたイベントは出さない。イベントの日(題名の日付、なければページの「日程」から取った eventDate)で判断し、どちらもなければ発表から3週間で外す
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const evDay = (i) => {
+    if (i.eventDate) return new Date(i.eventDate + "T00:00:00");
+    const s = i.title.replace(/[０-９]/g, (d) => String.fromCharCode(d.charCodeAt(0) - 0xfee0));
+    const pub = new Date(i.date + "T00:00:00");
+    let m = s.match(/令和(\d+)年(\d+)月(\d+)日/);
+    if (m) return new Date(2018 + +m[1], m[2] - 1, +m[3]);
+    m = s.match(/(20\d\d)年(\d+)月(\d+)日/);
+    if (m) return new Date(+m[1], m[2] - 1, +m[3]);
+    m = s.match(/(\d{1,2})月(\d{1,2})日/) || s.match(/(\d{1,2})\/(\d{1,2})/);
+    if (m) { const d = new Date(pub.getFullYear(), m[1] - 1, +m[2]); if (d < pub - 60 * 864e5) d.setFullYear(d.getFullYear() + 1); return d; }
+    return null;
+  };
+  const upcoming = (i) => { const d = evDay(i); return d ? d >= today : (today - new Date(i.date + "T00:00:00")) / 864e5 <= 21; };
+  const event = y.filter((i) => /開催|ツアー|ハイク|まつり|祭/.test(i.title) && upcoming(i)).slice(0, 3);
   const yrow = (icon, label, items) => items.length ? `<div class="yrow"><div class="yl">${icon} ${label}</div><div>${items.join("<br>")}</div></div>` : "";
   const dated = (i) => `${link(i)} <small>(${fmt(i.date)})</small>`;
   return `<details class="yama"><summary><b>⛰ つくば山情報</b><span class="one">${esc(S.yama.one)}</span></summary>
       ${yrow("🍁", "今の見どころ", S.yama.season.map((x) => esc(x.text) + (x.note ? ` <small class="chk">(${esc(x.note)})</small>` : "")))}
-      ${yrow("🚡", "運行", unko.map(dated))}${yrow("📢", "お知らせ", oshirase.map(dated))}${yrow("🎪", "イベント", event.map(dated))}
+      ${yrow("🚡", "運行", unko.map(dated))}${yrow("📢", "お知らせ", oshirase.map(dated))}${yrow("🎪", "イベント", event.map((i) => i.eventDate ? `${link(i)} <small>(${fmt(i.eventDate)}に開催)</small>` : dated(i)))}
       <div style="height:10px"></div></details>
     <div class="src">運行・お知らせ・イベントは、筑波観光鉄道とつくば観光コンベンション協会の新着情報より(${esc(LIVE.fetched)}に取得)</div>`;
 }
