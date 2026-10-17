@@ -4,6 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="5eyRO2TMQCaqp19FQDh1l13kgr3vdPNuUjPTj3zPG14" />
+<script>
+// アクセス解析(Googleアナリティクス)。公開のサイト(tsukuba-note.com)で開いたときだけ読みこむ
+if (location.hostname === "tsukuba-note.com") {
+  var ga = document.createElement("script"); ga.async = true; ga.src = "https://www.googletagmanager.com/gtag/js?id=G-T3QD7L7X3Q"; document.head.appendChild(ga);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag("js", new Date()); gtag("config", "G-T3QD7L7X3Q");
+}
+</script>
 <title>とんかつ とんQ(とんかつ) | つくばノート</title>
 <meta name="description" content="とんかつ とんQ(つくば市のとんかつ)。昼どきや土日は順番待ちができる、人気のとんかつ店。昼どきや土日は、ほぼいつも順番待ちが出ている人気店です。それでも、おいしいのは間違いありません。">
 <link rel="canonical" href="https://tsukuba-note.com/place/tonq/">
@@ -227,7 +236,7 @@
   <div class="wrap">
     <div class="hand" style="font-size:17px;color:var(--ink)">このサイトについて</div>
     <p>つくば市に住んでいる個人が作っています。載せているのは、実際に知っていることと、公式で確かめたことだけです。営業時間、料金、休みの日は、それぞれ「確かめた時期」のものです。変わっていることがあります。このサイトの情報を使って生じた損害について、運営者は責任を負いかねます。</p>
-    <p>このサイトを開くと、サイトを置いているサービス(GitHub Pages)と、文字の書体・地図・写真の読みこみ先に、接続の情報が送られます。</p>
+    <p>このサイトを開くと、サイトを置いているサービス(GitHub Pages)と、文字の書体・地図・写真の読みこみ先に、接続の情報が送られます。また、どのページがどれくらい見られているかを知るために、Google社のアクセス解析「Googleアナリティクス」を使っています(<a href="#" id="footga">くわしく</a>)。</p>
     <p>お問い合わせ・載っている内容の直しのご連絡: <span id="footmail"></span>(<a href="#" id="footpolicy">情報の扱いについて</a>)。最終更新: <span id="upd"></span></p>
     <div class="credits" id="credits"></div>
   </div>
@@ -281,7 +290,7 @@ function openTell() {
       <li>内容は、情報を確かめることと、サイトに載せるかどうかの検討に使います。確かめる作業には、AIの道具を使うことがあります。</li>
       <li>用の済んだメールは、長く残さずに消します。</li>
       <li>消してほしいときは、同じアドレスにご連絡ください。</li>
-      <li>このサイトは、広告やアクセス解析の仕組みを入れていません。サイトを置いているサービス(GitHub Pages)と、書体・地図・写真の読みこみ先に、接続の情報が送られます。</li></ul></div></div>`;
+      <li>このサイトに広告は入れていません。</li><li>アクセス解析: どのページがどれくらい見られているかを知るために、Google社の「Googleアナリティクス」を使っています。ページを開くと、見たページ、使っている端末やブラウザの種類、おおまかな地域などが、クッキーなどを使ってGoogle社に送られます。名前やメールアドレスは送られません。送られる情報の扱いは<a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">Google社の説明</a>のとおりです。送られたくない場合は、<a href="https://tools.google.com/dlpage/gaoptout?hl=ja" target="_blank" rel="noopener">Google社のオプトアウト アドオン</a>を使うか(パソコンのブラウザ向けです)、ブラウザの設定でクッキーを止めてください(スマホも同じです)。</li><li>このほか、サイトを置いているサービス(GitHub Pages)と、書体(Google Fonts)・地図(OpenStreetMap、地図の部品はunpkg.com)・写真(ウィキメディア・コモンズ)の読みこみ先に、接続の情報が送られます。</li></ul></div></div>`;
   $("mailcopy").onclick = () => {
     const done = () => { $("mailcopy").textContent = "コピーしました"; };
     try { navigator.clipboard.writeText(m).then(done, () => { getSelection().selectAllChildren($("mailtxt")); }); } catch (e) { getSelection().selectAllChildren($("mailtxt")); }
@@ -406,7 +415,7 @@ function render(keepScroll) {
   // 分野のページの中での絞りこみ(子育て中の方、など)は、ページを移らずに切りかえる
   $("view").querySelectorAll("button[data-reader]").forEach((b) => b.onclick = () => { state = { cat: state.cat, reader: b.dataset.reader || null, place: null }; render(true); });
   if ($("tellbtn")) $("tellbtn").onclick = openTell;
-  if ($("footmail")) { $("footmail").textContent = S.mail; $("footpolicy").onclick = (e) => { e.preventDefault(); openTell(); }; }
+  if ($("footmail")) { $("footmail").textContent = S.mail; $("footpolicy").onclick = (e) => { e.preventDefault(); openTell(); }; if ($("footga")) $("footga").onclick = (e) => { e.preventDefault(); openTell(); }; }
   drawMap();
   if (!keepScroll) window.scrollTo(0, 0);
 }
