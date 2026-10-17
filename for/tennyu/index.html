@@ -356,7 +356,7 @@ function liveBox() {
   const yrow = (icon, label, items) => items.length ? `<div class="yrow"><div class="yl">${icon} ${label}</div><div>${items.join("<br>")}</div></div>` : "";
   const dated = (i) => `${link(i)} <small>(${fmt(i.date)})</small>`;
   return `<details class="yama"><summary><b>⛰ つくば山情報</b><span class="one">${esc(S.yama.one)}</span></summary>
-      ${yrow("🍁", "今の見どころ", S.yama.season.map((x) => esc(x.text) + (x.note ? ` <small class="chk">(${esc(x.note)})</small>` : "")))}
+      ${yrow("🍁", "今の見どころ", S.yama.season.map((x) => esc(x.text) + (x.note ? ` <small class="chk">(${esc(x.note)})</small>` : "") + (x.link ? ` <a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.linkLabel || "出どころ")} →</a>` : "")))}
       ${yrow("🚡", "運行", unko.map(dated))}${yrow("📢", "お知らせ", oshirase.map(dated))}${yrow("🎪", "イベント", event.map((i) => i.eventDate ? `${link(i)} <small>(${fmt(i.eventDate)}に開催)</small>` : dated(i)))}
       <div style="height:10px"></div></details>
     <div class="src">運行・お知らせ・イベントは、筑波観光鉄道とつくば観光コンベンション協会の新着情報より(${esc(LIVE.fetched)}に取得)</div>`;
