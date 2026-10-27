@@ -8,6 +8,12 @@ window.LIVE = {
  "fetched": "2026-10-27",
  "items": [
   {
+   "date": "2026-10-27",
+   "title": "【2026年10月24日(土)～】台湾フェアを開催します",
+   "url": "https://mt-tsukuba.com/%e5%8f%b0%e6%b9%be%e3%83%95%e3%82%a7%e3%82%a22026%e9%96%8b%e5%82%ac/",
+   "src": "筑波観光鉄道"
+  },
+  {
    "date": "2026-10-25",
    "title": "ケーブルカーラストラン カウントダウンパネルを設置しました",
    "url": "https://mt-tsukuba.com/%e3%82%b1%e3%83%bc%e3%83%96%e3%83%ab%e3%82%ab%e3%83%bc%e3%83%a9%e3%82%b9%e3%83%88%e3%83%a9%e3%83%b3-%e3%82%ab%e3%82%a6%e3%83%b3%e3%83%88%e3%83%80%e3%82%a6%e3%83%b3%e3%83%91%e3%83%8d%e3%83%ab%e3%81%ab/",
@@ -65,6 +71,12 @@ window.LIVE = {
    "src": "観光コンベンション協会"
   },
   {
+   "date": "2026-10-02",
+   "title": "【令和8年12月1日(火曜日)～令和8年12月18日(金曜日)】筑波交流センター休館のお知らせ",
+   "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/shimimbuchiikisiennka/gyomuannai/kyukan/29725.html",
+   "src": "つくば市"
+  },
+  {
    "date": "2026-09-24",
    "title": "筑波山塊の石をたどるジオツアーを開催！",
    "url": "https://ttca.jp/%e7%ad%91%e6%b3%a2%e5%b1%b1%e5%a1%8a%e3%81%ae%e7%9f%b3%e3%82%92%e3%81%9f%e3%81%a9%e3%82%8b%e3%82%b8%e3%82%aa%e3%83%84%e3%82%a2%e3%83%bc%e3%82%92%e9%96%8b%e5%82%ac%ef%bc%81/",
@@ -72,16 +84,10 @@ window.LIVE = {
    "eventDate": "2026-11-14"
   },
   {
-   "date": "2026-09-11",
-   "title": "『松茸の炊き込みご飯』始まりました。【割烹一の矢】",
-   "url": "https://ttca.jp/%e3%80%8e%e6%9d%be%e8%8c%b8%e3%81%ae%e7%82%8a%e3%81%8d%e8%be%bc%e3%81%bf%e3%81%94%e9%a3%af%e3%80%8f%e5%a7%8b%e3%81%be%e3%82%8a%e3%81%be%e3%81%97%e3%81%9f%e3%80%82%e3%80%90%e5%89%b2%e7%83%b9%e4%b8%80/",
-   "src": "観光コンベンション協会"
-  },
-  {
-   "date": "2026-09-11",
-   "title": "【2027年2月予定】「筑波山ケーブルカー」新車両を導入します",
-   "url": "https://mt-tsukuba.com/%e3%80%902027%e5%b9%b42%e6%9c%88%e4%ba%88%e5%ae%9a%e3%80%91%e3%80%8c%e7%ad%91%e6%b3%a2%e5%b1%b1%e3%82%b1%e3%83%bc%e3%83%96%e3%83%ab%e3%82%ab%e3%83%bc%e3%80%8d%e6%96%b0%e8%bb%8a%e4%b8%a1%e3%82%92/",
-   "src": "筑波観光鉄道"
+   "date": "2026-09-14",
+   "title": "【11月23日（月曜日）】筑波交流センター・市民ホールつくばね臨時休館のお知らせ",
+   "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/shimimbuchiikisiennka/gyomuannai/kyukan/26099.html",
+   "src": "つくば市"
   }
  ]
 };
