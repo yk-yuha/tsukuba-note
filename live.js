@@ -8,6 +8,12 @@ window.LIVE = {
  "fetched": "2026-10-29",
  "items": [
   {
+   "date": "2026-10-29",
+   "title": "【令和8年12月5日（土曜日）～7日（月曜日）】並木交流センター臨時休館のお知らせ",
+   "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/shimimbuchiikisiennka/gyomuannai/kyukan/29850.html",
+   "src": "つくば市"
+  },
+  {
    "date": "2026-10-28",
    "title": "筑波山紅葉情報(2026年10月28日現在)",
    "url": "https://ttca.jp/autumn-leaves-info2026/",
