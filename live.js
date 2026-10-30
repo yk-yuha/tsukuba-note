@@ -8,6 +8,12 @@ window.LIVE = {
  "fetched": "2026-10-30",
  "items": [
   {
+   "date": "2026-10-30",
+   "title": "5代目筑波山ケーブルカー ラストランキャンペーンを開催します",
+   "url": "https://mt-tsukuba.com/5%e4%bb%a3%e7%9b%ae%e7%ad%91%e6%b3%a2%e5%b1%b1%e3%82%b1%e3%83%bc%e3%83%96%e3%83%ab%e3%82%ab%e3%83%bc-%e3%83%a9%e3%82%b9%e3%83%88%e3%83%a9%e3%83%b3%e3%82%ad%e3%83%a3%e3%83%b3%e3%83%9a%e3%83%bc%e3%83%b3/",
+   "src": "筑波観光鉄道"
+  },
+  {
    "date": "2026-10-29",
    "title": "【令和8年12月5日（土曜日）～7日（月曜日）】並木交流センター臨時休館のお知らせ",
    "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/shimimbuchiikisiennka/gyomuannai/kyukan/29850.html",
@@ -106,12 +112,6 @@ window.LIVE = {
    "url": "https://ttca.jp/%e7%ad%91%e6%b3%a2%e5%b1%b1%e5%a1%8a%e3%81%ae%e7%9f%b3%e3%82%92%e3%81%9f%e3%81%a9%e3%82%8b%e3%82%b8%e3%82%aa%e3%83%84%e3%82%a2%e3%83%bc%e3%82%92%e9%96%8b%e5%82%ac%ef%bc%81/",
    "src": "観光コンベンション協会",
    "eventDate": "2026-11-14"
-  },
-  {
-   "date": "2026-09-14",
-   "title": "【11月23日（月曜日）】筑波交流センター・市民ホールつくばね臨時休館のお知らせ",
-   "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/shimimbuchiikisiennka/gyomuannai/kyukan/26099.html",
-   "src": "つくば市"
   }
  ]
 };
