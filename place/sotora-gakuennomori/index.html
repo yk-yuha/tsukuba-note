@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="5eyRO2TMQCaqp19FQDh1l13kgr3vdPNuUjPTj3zPG14" />
+<script>
+// アクセス解析(Googleアナリティクス)。公開のサイト(tsukuba-note.com)で開いたときだけ読みこむ
+if (location.hostname === "tsukuba-note.com") {
+  var ga = document.createElement("script"); ga.async = true; ga.src = "https://www.googletagmanager.com/gtag/js?id=G-T3QD7L7X3Q"; document.head.appendChild(ga);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag("js", new Date()); gtag("config", "G-T3QD7L7X3Q");
+}
+</script>
+<title>そよら つくば学園の森(スーパー) | つくばノート</title>
+<meta name="description" content="そよら つくば学園の森(つくば市のスーパー)。魚が新鮮で、肉も種類が豊富。値段も良心的。2026年10月にオープンした、イオンの商業施設です。魚が新鮮で、値段も良心的。お肉も種類が豊富で、安く買えました。">
+<link rel="canonical" href="https://tsukuba-note.com/place/sotora-gakuennomori/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="つくばノート">
+<meta property="og:title" content="そよら つくば学園の森(スーパー) | つくばノート">
+<meta property="og:description" content="そよら つくば学園の森(つくば市のスーパー)。魚が新鮮で、肉も種類が豊富。値段も良心的。2026年10月にオープンした、イオンの商業施設です。魚が新鮮で、値段も良心的。お肉も種類が豊富で、安く買えました。">
+<meta property="og:url" content="https://tsukuba-note.com/place/sotora-gakuennomori/">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1920px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Yomogi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  :root { --ink:#3b302a; --sub:#8a7c72; --bg:#fff9ee; --paper:#fff; --accent:#e9643b; --marker:#ffe27a; --good:#2f8f6b; --care:#c9722a; --soft:#f6ecd9; --sh:0 6px 20px rgba(90,60,30,.08); }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic UI",sans-serif; font-weight:500; line-height:1.85; -webkit-font-smoothing:antialiased; }
+  button { font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer; text-align:left; }
+  a { color:inherit; }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 24px; }
+  .hand { font-family:"Yomogi","Zen Maru Gothic",cursive; font-weight:400; }
+  .mk { background:linear-gradient(transparent 62%, var(--marker) 62%); padding:0 .15em; }
+
+  /* 上の帯 */
+  .top { position:sticky; top:0; z-index:1500; background:color-mix(in srgb, var(--bg) 50%, transparent); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
+  .top .wrap { display:flex; align-items:center; gap:14px; padding-top:12px; padding-bottom:10px; flex-wrap:wrap; }
+  .logo { font-size:22px; font-weight:900; letter-spacing:.02em; display:inline-flex; align-items:center; gap:.3em; line-height:1.2; white-space:nowrap; }
+  .logo svg { height:1.25em; width:auto; display:block; }
+  .logo b { font-weight:inherit; }
+  .logo span { color:var(--accent); }
+  .trial { font-size:11px; color:var(--sub); border:1px dashed var(--sub); border-radius:99px; padding:0 10px; }
+  .menu { display:flex; gap:2px; margin-left:auto; flex-wrap:wrap; }
+  .menu a { font-size:14px; padding:4px 8px; border-radius:99px; text-decoration:none; }
+  .menu a:hover { background:var(--soft); }
+  .menu a.on { background:var(--ink); color:#fff; }
+  a.logo, a.tile, a.card, a.back, a.more { text-decoration:none; }
+  .place { background:var(--paper); border-radius:24px; overflow:hidden; box-shadow:var(--sh); max-width:720px; margin:18px auto 0; }
+  .dpic.none { aspect-ratio:auto; height:132px; font-size:48px; }
+  .place .dbody h1 { font-size:27px; margin:0; font-weight:900; line-height:1.4; }
+
+  /* トップの写真 */
+  .hero { position:relative; margin-top:10px; }
+  .hero .ph { height:min(58vh,480px); border-radius:28px; background:#ddd center 6%/cover no-repeat; }
+  .hero .box { position:relative; margin:-72px 0 0 28px; display:inline-block; max-width:min(560px,calc(100% - 56px)); background:var(--paper); border-radius:22px; padding:22px 28px 20px; box-shadow:0 10px 30px rgba(90,60,30,.12); }
+  .hero .say { color:var(--accent); font-size:17px; }
+  .hero h1 { font-size:clamp(26px,4.4vw,40px); line-height:1.45; margin:2px 0 8px; font-weight:900; text-wrap:balance; word-break:auto-phrase; }
+  .hero p { margin:0; font-size:15px; color:var(--sub); }
+  .sticker { position:absolute; right:26px; top:-16px; width:104px; height:104px; border-radius:50%; background:var(--accent); color:#fff; display:grid; place-items:center; text-align:center; font-size:15px; line-height:1.35; transform:rotate(9deg); box-shadow:0 6px 16px rgba(233,100,59,.35); }
+  .credit { position:absolute; right:14px; top:calc(min(58vh,480px) - 24px); font-size:10px; color:#fff; opacity:.85; text-shadow:0 1px 3px rgba(0,0,0,.6); }
+
+  /* 中の画面の見出し(写真の帯をやめて、文字だけ) */
+  .phead { padding:34px 0 0; }
+  .phead .back { font-size:13px; color:var(--sub); }
+  .phead .back:hover { color:var(--accent); }
+  .phead h1 { font-size:clamp(28px,4.6vw,42px); margin:6px 0 4px; font-weight:900; line-height:1.4; }
+  .phead p { margin:0; color:var(--sub); font-size:15px; }
+  .chips { display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; font-size:14px; }
+  .chips button { padding:3px 14px; border-radius:99px; background:var(--paper); box-shadow:0 2px 6px rgba(90,60,30,.08); }
+  .chips button.on { background:var(--accent); color:#fff; }
+
+  section { padding:56px 0 0; }
+  h2 { font-size:clamp(21px,3vw,27px); margin:0 0 6px; font-weight:900; }
+  .h2note { color:var(--sub); font-size:14px; margin:0 0 22px; }
+  .more { font-size:13px; color:var(--accent); margin-left:10px; font-weight:500; }
+
+  /* いま、つくばで / つくば山情報 */
+  .live { background:var(--paper); border-radius:24px; padding:24px 28px; box-shadow:var(--sh); }
+  .live ul { list-style:none; margin:12px 0 0; padding:0; }
+  .live li { display:flex; gap:14px; align-items:baseline; padding:10px 0; border-top:2px dotted var(--soft); font-size:15px; }
+  .live .d { flex:none; font-size:12px; background:var(--soft); border-radius:99px; padding:0 10px; color:var(--sub); }
+  .live a, .yrow a { text-decoration:none; } .live a:hover, .yrow a:hover { text-decoration:underline; }
+  .dot { display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--accent); margin-right:8px; animation:blink 1.6s infinite; }
+  @keyframes blink { 50% { opacity:.25; } }
+  details.yama { margin-top:12px; background:#eef6ee; border-radius:18px; padding:0 20px; }
+  details.yama summary { list-style:none; cursor:pointer; padding:12px 0; display:flex; gap:12px; align-items:center; font-size:14px; }
+  details.yama summary::-webkit-details-marker { display:none; }
+  details.yama summary b { font-size:15px; white-space:nowrap; }
+  details.yama summary .one { color:var(--sub); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1; }
+  details.yama summary::after { content:"＋"; color:var(--good); font-weight:900; }
+  details.yama[open] summary::after { content:"－"; }
+  .yrow { display:grid; grid-template-columns:8.6em 1fr; gap:8px; padding:8px 0; border-top:2px dotted #d5e6d5; font-size:13px; line-height:1.65; }
+  .yrow .yl { font-weight:700; white-space:nowrap; }
+  .yrow small { color:var(--sub); } .yrow .chk { color:var(--care); }
+  .src { font-size:12px; color:var(--sub); margin-top:10px; }
+
+  .watch { display:grid; gap:18px; grid-template-columns:repeat(2,1fr); }
+  .watch .w { background:var(--paper); border-radius:20px; padding:20px 24px; box-shadow:var(--sh); border-left:6px solid var(--accent); }
+  .watch .when { display:inline-block; font-size:12px; background:var(--marker); border-radius:99px; padding:0 12px; }
+  .watch h4 { font-size:18px; margin:6px 0 4px; font-weight:900; line-height:1.5; }
+  .watch p { margin:0 0 6px; font-size:14px; }
+  .watch a { font-size:13px; color:var(--accent); text-decoration:none; }
+  .tell { background:#fff3bf; border-radius:24px; padding:26px 30px; display:flex; gap:24px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .tell p { margin:4px 0 0; font-size:14px; }
+  .tellbtn { background:var(--accent); color:#fff; font-weight:700; border-radius:99px; padding:10px 28px; box-shadow:0 6px 14px rgba(233,100,59,.3); }
+  /* トップの写真タイル */
+  .tiles { display:grid; gap:26px 22px; grid-template-columns:repeat(3,1fr); }
+  .tile { display:block; width:100%; background:var(--paper); padding:10px 10px 14px; border-radius:16px; box-shadow:0 6px 18px rgba(90,60,30,.10); transition:transform .25s; position:relative; }
+  .tile:nth-child(odd) { transform:rotate(-1.2deg); } .tile:nth-child(even) { transform:rotate(1deg); }
+  .tile:hover { transform:rotate(0) translateY(-4px); }
+  .tile img, .tile .noimg { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:10px; }
+  .noimg { background:linear-gradient(135deg,#ffe1cf,#fff3bf); display:grid; place-items:center; font-size:56px; }
+  .tile .ttl { font-size:19px; font-weight:900; margin:10px 6px 0; }
+  .tile .nt { font-size:13px; color:var(--sub); margin:0 6px; line-height:1.6; }
+  .tile .badge { position:absolute; top:18px; left:18px; font-size:12px; background:var(--marker); padding:0 10px; border-radius:99px; }
+  .tile .badge.soon { background:rgba(255,255,255,.9); color:var(--sub); }
+
+  /* 1件のカード(一覧) */
+  .cards { display:grid; gap:20px; grid-template-columns:repeat(3,1fr); }
+  .card { display:flex; flex-direction:column; width:100%; background:var(--paper); border-radius:18px; overflow:hidden; box-shadow:var(--sh); transition:transform .2s, box-shadow .2s; }
+  .card:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(90,60,30,.14); }
+  .card .pic { position:relative; aspect-ratio:16/10; background:linear-gradient(135deg,#ffe1cf,#fff3bf); display:grid; place-items:center; font-size:44px; }
+  .card .pic img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .card .kind { position:absolute; left:10px; top:10px; font-size:11px; background:rgba(255,255,255,.92); border-radius:99px; padding:0 10px; }
+  .card .voicemark { position:absolute; right:10px; bottom:10px; font-size:11px; background:var(--accent); color:#fff; border-radius:99px; padding:0 10px; }
+  .card .b { padding:12px 16px 16px; }
+  .card h3 { font-size:18px; margin:0 0 2px; font-weight:900; line-height:1.45; }
+  .card .sum { font-size:13.5px; color:var(--sub); line-height:1.65; }
+
+  /* 地図 */
+  #map { height:400px; border-radius:22px; box-shadow:var(--sh); }
+
+  /* 住人のメモ(付箋) */
+  .memo { display:grid; gap:16px; grid-template-columns:repeat(3,1fr); }
+  .memo .item { background:#fff3bf; border-radius:4px 18px 18px 18px; padding:14px 18px; font-size:14px; transform:rotate(-.6deg); box-shadow:0 4px 10px rgba(90,60,30,.08); }
+  .memo .item:nth-child(even) { transform:rotate(.7deg); background:#ffe6d6; }
+  .memo .tpoints { margin:8px 0 0; padding-left:1.2em; }
+  .memo .tpoints li { margin:4px 0; }
+  .memo .tnote { font-size:12px; color:var(--care); margin-top:6px; }
+  .memo h4 { font-size:15px; margin:0 0 2px; font-weight:900; }
+  .soonbox { padding:64px 20px; text-align:center; color:var(--sub); background:var(--paper); border-radius:24px; font-size:18px; }
+
+  /* くわしい画面 */
+  dialog { border:0; padding:0; border-radius:24px; width:min(640px,calc(100vw - 24px)); max-height:calc(100vh - 32px); background:var(--paper); color:var(--ink); box-shadow:0 24px 60px rgba(40,25,10,.35); }
+  dialog::backdrop { background:rgba(50,35,25,.5); backdrop-filter:blur(3px); }
+  .dpic { position:relative; aspect-ratio:16/9; background:linear-gradient(135deg,#ffe1cf,#fff3bf); display:grid; place-items:center; font-size:64px; }
+  .dpic img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .dpic .pc { position:absolute; right:10px; bottom:6px; font-size:10px; color:#fff; text-shadow:0 1px 3px rgba(0,0,0,.7); }
+  .dpic .nophoto { position:absolute; bottom:10px; font-size:12px; color:var(--sub); }
+  .dclose { position:absolute; right:12px; top:12px; width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.95); text-align:center; font-size:18px; box-shadow:0 2px 8px rgba(0,0,0,.2); }
+  .dbody { padding:20px 26px 26px; }
+  .dbody h3 { font-size:25px; margin:0; font-weight:900; line-height:1.4; }
+  .tags { margin:8px 0 14px; font-size:12px; color:var(--sub); }
+  .tags span { display:inline-block; background:var(--soft); border-radius:99px; padding:0 10px; margin:0 4px 4px 0; }
+  .voice { background:#fff3bf; border-radius:4px 18px 18px 18px; padding:10px 18px 14px; margin:0 0 14px; font-size:15px; }
+  .basic { background:var(--soft); border-radius:14px; padding:10px 16px; margin:0 0 12px; font-size:13.5px; line-height:1.75; }
+  .lbl { font-size:17px; margin:8px 0 2px; }
+  .lbl.v { color:var(--accent); } .lbl.g { color:var(--good); } .lbl.c { color:var(--care); }
+  .dbody ul { margin:0 0 6px; padding:0; list-style:none; font-size:14.5px; }
+  .dbody li { padding-left:1.3em; position:relative; margin:3px 0; line-height:1.7; }
+  .gl li::before { content:"◎"; position:absolute; left:0; color:var(--good); font-size:.85em; }
+  .cl li::before { content:"△"; position:absolute; left:0; color:var(--care); font-size:.85em; }
+  .links { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .links .go { display:inline-block; padding:9px 16px; border-radius:999px; background:var(--ink); color:#fff; font-size:13px; font-weight:700; text-decoration:none; }
+  .links .go.map { background:transparent; color:var(--ink); border:2px solid var(--ink); padding:7px 14px; }
+  .mailbox { font-size:16px; font-weight:700; background:var(--soft); border-radius:14px; padding:12px 16px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; overflow-wrap:anywhere; }
+  .mailbox .copy { font:inherit; font-size:12px; font-weight:700; border:2px solid var(--ink); background:transparent; color:var(--ink); border-radius:999px; padding:4px 12px; cursor:pointer; }
+  .policy { margin-top:18px; font-size:12.5px; color:var(--sub); border-top:2px dotted var(--soft); padding-top:12px; }
+  .policy ul { margin:4px 0 12px; padding-left:18px; }
+  .odekake { display:flex; flex-direction:column; gap:10px; }
+  .odekake .o { display:flex; gap:14px; align-items:baseline; background:var(--paper); border-radius:16px; padding:12px 18px; box-shadow:var(--sh); }
+  .odekake .when { flex:0 0 auto; min-width:7.5em; font-weight:900; color:var(--accent); font-size:14px; }
+  .odekake h4 { margin:0; font-size:16px; line-height:1.5; }
+  .odekake h4 small { font-size:12px; font-weight:700; color:var(--good); margin-left:6px; }
+  .odekake p { margin:2px 0 0; font-size:13px; color:var(--sub); }
+  @media (max-width:560px) { .odekake .o { flex-direction:column; gap:2px; } }
+  .checked { font-size:12px; color:var(--sub); margin-top:12px; border-top:2px dotted var(--soft); padding-top:10px; }
+
+  footer { margin-top:88px; padding:36px 0 44px; font-size:13px; color:var(--sub); border-top:3px dotted var(--soft); }
+  .credits { margin-top:14px; font-size:11px; line-height:1.9; }
+
+  /* 三本線のメニュー(せまい画面で出す) */
+  .burger { display:none; margin-left:auto; width:44px; height:44px; border-radius:50%; background:var(--paper); box-shadow:0 2px 8px rgba(90,60,30,.12); position:relative; }
+  .burger span { position:absolute; left:12px; right:12px; height:2.5px; border-radius:2px; background:var(--ink); transition:transform .2s, opacity .2s; }
+  .burger span:nth-child(1) { top:15px; } .burger span:nth-child(2) { top:21px; } .burger span:nth-child(3) { top:27px; }
+  .burger[aria-expanded="true"] span:nth-child(1) { transform:translateY(6px) rotate(45deg); }
+  .burger[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+  .burger[aria-expanded="true"] span:nth-child(3) { transform:translateY(-6px) rotate(-45deg); }
+  .burger:focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+  .nav { position:absolute; left:16px; right:16px; top:100%; margin:4px 0 0 auto; max-width:560px; max-height:calc(100vh - 90px); overflow:auto; background:var(--paper); border-radius:20px; box-shadow:0 12px 28px rgba(90,60,30,.16); padding:16px 18px 18px; }
+  .nav .nl { font-size:15px; color:var(--accent); margin:10px 0 4px; }
+  .nav .nl:first-child { margin-top:0; }
+  .nav .ng { display:grid; grid-template-columns:1fr 1fr; gap:6px 10px; }
+  .nav a, .nav button.navtell { display:block; text-decoration:none; padding:8px 8px; border-radius:12px; background:var(--soft); font-size:clamp(12px,3.4vw,14px); font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .nav a.on { background:var(--ink); color:#fff; }
+  .nav button.navtell { width:100%; margin-top:14px; background:var(--accent); color:#fff; text-align:center; }
+  @media (max-width:1100px) { .burger { display:block; } .menu { display:none; } }
+  @media (min-width:1101px) { .nav { display:none; } }
+  @media (max-width:820px) {
+    .top .wrap { padding-top:10px; padding-bottom:8px; }
+    .wrap { padding:0 16px; }
+    .menu { display:none; }
+    .tiles, .cards { grid-template-columns:1fr 1fr; gap:16px 14px; }
+    .memo, .watch { grid-template-columns:1fr; }
+    #map { height:300px; }
+    .hero .box { margin:-56px 12px 0; max-width:calc(100% - 24px); padding:18px 20px; }
+    .sticker { width:84px; height:84px; font-size:12px; right:10px; top:-34px; }
+    section { padding-top:44px; }
+    details.yama summary .one { display:none; }
+    .yrow { grid-template-columns:1fr; gap:2px; }
+    .hero .say { padding-right:70px; }
+    .credit { left:14px; right:auto; top:calc(min(58vh,480px) - 82px); }
+    .card .pic { font-size:34px; align-items:end; padding-bottom:8px; }
+    .tile .noimg { font-size:46px; align-items:end; padding-bottom:10px; }
+  }
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="wrap">
+    <a class="logo" id="logo"></a>
+    <div class="menu" id="menu"></div>
+    <button class="burger" id="burger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="nav" id="nav" hidden></nav>
+</div>
+<div id="view"><div class="wrap"><p><a href="../../kaimono/">スーパー・買い物</a></p><h1>そよら つくば学園の森</h1><p>魚が新鮮で、肉も種類が豊富。値段も良心的</p><h2>住人のひとこと</h2><p>2026年10月にオープンした、イオンの商業施設です。魚が新鮮で、値段も良心的。お肉も種類が豊富で、安く買えました。</p><ul><li>1階の食品売場は8時〜22時</li><li>2階の生活用品売場は9時〜22時</li><li>駐車場は250台(平面と屋上)</li></ul><h2>知っていると、ちょっといい</h2><ul><li>研究学園駅から北へ約1.9km</li><li>サイゼリヤ、バーガーキング、ダイソー、JINSなど、約10の専門店が入っています</li><li>2階に、イオン薬局(処方せんの受付は9時30分〜19時30分)</li></ul><h2>知っておくこと</h2><ul><li>イートインコーナーはありますが、無料の飲み水やお湯はありません。有料のコーヒーマシンがあり、1杯120円からです。</li></ul><p><a href="https://prtimes.jp/main/html/rd/p/000006114.000007505.html">運営会社の発表</a></p><p>確かめた時期: 2026年10月31日(運営会社の発表で確認)</p></div></div>
+<dialog id="dlg"></dialog>
+<footer>
+  <div class="wrap">
+    <div class="hand" style="font-size:17px;color:var(--ink)">このサイトについて</div>
+    <p>つくば市に住んでいる個人が作っています。載せているのは、実際に知っていることと、公式で確かめたことだけです。営業時間、料金、休みの日は、それぞれ「確かめた時期」のものです。変わっていることがあります。このサイトの情報を使って生じた損害について、運営者は責任を負いかねます。</p>
+    <p>このサイトを開くと、サイトを置いているサービス(GitHub Pages)と、文字の書体・地図・写真の読みこみ先に、接続の情報が送られます。また、どのページがどれくらい見られているかを知るために、Google社のアクセス解析「Googleアナリティクス」を使っています(<a href="#" id="footga">くわしく</a>)。</p>
+    <p>お問い合わせ・載っている内容の直しのご連絡: <span id="footmail"></span>(<a href="#" id="footpolicy">情報の扱いについて</a>)。最終更新: <span id="upd"></span></p>
+    <div class="credits" id="credits"></div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>window.ROOT="../../";window.ROUTE="place/sotora-gakuennomori/";</script>
+<script src="../../data.js"></script>
+<script src="../../live.js"></script>
+<script>
+const S = window.SITE, P = S.photos, LIVE = window.LIVE;
+const $ = (id) => document.getElementById(id);
+const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+// 公開用では、ページごとに ROOT(トップまでの道)と ROUTE(このページの道)が入る。手元で1つのファイルとして開くときは # の後ろを道として使う
+const ROOT = window.ROOT;
+const link = (path) => ROOT === undefined ? "#/" + path : ROOT + path;
+const parseRoute = (r) => { const a = String(r || "").split("/").filter(Boolean); if (a[0] === "place") return { place: a[1] }; if (a[0] === "for") return { reader: a[1] }; return a[0] ? { cat: a[0] } : {}; };
+const readRoute = () => Object.assign({ cat: null, reader: null, place: null }, parseRoute(window.ROUTE !== undefined ? window.ROUTE : location.hash.slice(2)));
+let state = readRoute(), map = null;
+const match = (x) => (!state.cat || x.cat === state.cat) && (!state.reader || x.readers.includes(state.reader));
+const psrc = (ph) => ph.own ? (ROOT === undefined ? "" : ROOT) + ph.src : ph.src;
+const pcred = (ph) => ph.own ? `写真: ${esc(ph.what)}(つくばノート撮影)` : `写真: ${esc(ph.what)} / ${esc(ph.by)} (${esc(ph.lic)})`;
+const catOf = (id) => S.categories.find((c) => c.id === id);
+
+function tile(href, photo, title, note, badge, soon) {
+  return `<a class="tile" href="${href}">${P[photo] ? `<img src="${psrc(P[photo])}" alt="${esc(P[photo].what)}" loading="lazy">` : `<div class="noimg">${esc(title.split(" ")[0])}</div>`}
+    ${badge ? `<span class="badge ${soon ? "soon" : ""}">${esc(badge)}</span>` : ""}
+    <div class="ttl">${esc(title)}</div>${note ? `<div class="nt">${esc(note)}</div>` : ""}</a>`;
+}
+
+function card(p) {
+  const ph = P[p.photo];
+  return `<a class="card" href="${link("place/" + p.id + "/")}"><div class="pic">${ph ? `<img src="${psrc(ph)}" alt="${esc(ph.what)}" loading="lazy">` : esc(catOf(p.cat).emoji)}
+    <span class="kind">${esc(p.kind)}</span>${p.text ? `<span class="voicemark hand">ひとこと</span>` : ""}</div>
+    <div class="b"><h3>${esc(p.name)}</h3><div class="sum">${esc(p.sum)}</div></div></a>`;
+}
+
+function openTell() {
+  const m = S.mail, sub = encodeURIComponent("つくばノートへの情報");
+  $("dlg").innerHTML = `<div class="dbody"><div style="text-align:right"><button id="dclose" type="button" style="font:inherit;font-size:12px;font-weight:700;border:2px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer">とじる ✕</button></div>
+    <h3 class="hand">つくばの情報を送る</h3>
+    <p>お店や公園のこと、イベントのこと、載っている内容のまちがい。メールで教えてください。載っているお店や施設の方からの「ここを直してほしい」というご連絡も、こちらへどうぞ。</p>
+    <p class="mailbox"><span id="mailtxt">${esc(m)}</span> <button class="copy" id="mailcopy" type="button">アドレスをコピー</button></p>
+    <div class="links"><a class="go" href="mailto:${esc(m)}?subject=${sub}">メールを書く →</a></div>
+    <div class="policy"><b>送る前に</b>
+      <ul><li>いただいた情報は、公式の発表などで確かめてから載せます。確かめられないものは載せません。すべてにお返事できるとは限りません。</li>
+      <li>載せるときは、このサイトの言葉で書き直します。お名前やメールアドレスは載せません。</li>
+      <li>ほかの人の住所や電話番号、ほかの人が写った写真、ほかの人が書いた文章や撮った写真、悪口など、人が困ることは送らないでください。</li></ul>
+      <b>お預かりした情報の扱い</b>
+      <ul><li>メールアドレスとお名前は、お返事のためだけに使い、ほかの人や会社に渡しません(法律で求められた場合を除きます)。</li>
+      <li>内容は、情報を確かめることと、サイトに載せるかどうかの検討に使います。確かめる作業には、AIの道具を使うことがあります。</li>
+      <li>用の済んだメールは、長く残さずに消します。</li>
+      <li>消してほしいときは、同じアドレスにご連絡ください。</li>
+      <li>このサイトに広告は入れていません。</li><li>アクセス解析: どのページがどれくらい見られているかを知るために、Google社の「Googleアナリティクス」を使っています。ページを開くと、見たページ、使っている端末やブラウザの種類、おおまかな地域などが、クッキーなどを使ってGoogle社に送られます。名前やメールアドレスは送られません。送られる情報の扱いは<a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">Google社の説明</a>のとおりです。送られたくない場合は、<a href="https://tools.google.com/dlpage/gaoptout?hl=ja" target="_blank" rel="noopener">Google社のオプトアウト アドオン</a>を使うか(パソコンのブラウザ向けです)、ブラウザの設定でクッキーを止めてください(スマホも同じです)。</li><li>このほか、サイトを置いているサービス(GitHub Pages)と、書体(Google Fonts)・地図(OpenStreetMap、地図の部品はunpkg.com)・写真(ウィキメディア・コモンズ)の読みこみ先に、接続の情報が送られます。</li></ul></div></div>`;
+  $("mailcopy").onclick = () => {
+    const done = () => { $("mailcopy").textContent = "コピーしました"; };
+    try { navigator.clipboard.writeText(m).then(done, () => { getSelection().selectAllChildren($("mailtxt")); }); } catch (e) { getSelection().selectAllChildren($("mailtxt")); }
+  };
+  $("dclose").onclick = () => $("dlg").close();
+  $("dlg").showModal();
+}
+function placeBody(p) {
+  const ph = P[p.photo];
+  const list = (cls, arr) => `<ul class="${cls}">${arr.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+  return `<div class="dpic${ph ? "" : " none"}">${ph ? `<img src="${psrc(ph)}" alt="${esc(ph.what)}"><span class="pc">${pcred(ph)}</span>` : `${esc(catOf(p.cat).emoji)}<span class="nophoto">写真は、これから撮ります</span>`}</div>
+    <div class="dbody"><h1><span class="mk">${esc(p.name)}</span></h1>
+      <div class="tags">${[p.kind, ...p.tags].map((t) => `<span>${esc(t)}</span>`).join("")}</div>
+      ${p.text ? `<div class="voice"><div class="lbl v hand">住人のひとこと</div>${esc(p.text)}</div>` : ""}
+      ${p.basic && p.basic.length ? `<div class="basic">${p.basic.map((t) => `<div>${esc(t)}</div>`).join("")}</div>` : ""}
+      ${p.info && p.info.length ? `<div class="lbl g hand">知っていると、ちょっといい</div>${list("gl", p.info)}` : ""}
+      ${p.care && p.care.length ? `<div class="lbl c hand">知っておくこと</div>${list("cl", p.care)}` : ""}
+      <div class="links">${p.link ? `<a class="go" href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.linkLabel)} →</a>` : ""}${p.link2 ? `<a class="go" href="${esc(p.link2)}" target="_blank" rel="noopener">${esc(p.link2Label)} →</a>` : ""}${(p.spots || []).map((sp) => `<a class="go map" href="https://www.google.com/maps/search/?api=1&query=${sp.lat},${sp.lng}" target="_blank" rel="noopener">地図で開く${(p.spots || []).length > 1 ? "(" + esc(sp.label) + ")" : ""}</a>`).join("")}</div>
+      <div class="checked">${p.stores ? esc(p.stores) + "<br>" : ""}確かめた時期: ${esc(p.checked)}</div>`;
+}
+
+function placePage() {
+  const p = S.places.find((x) => x.id === state.place);
+  if (!p) return home();
+  const c = catOf(p.cat), others = S.places.filter((x) => x.cat === p.cat && x !== p);
+  return `<div class="wrap"><div class="phead"><a class="back" href="${link(c.id + "/")}">← ${esc(c.emoji)} ${esc(c.label)}の一覧へ</a></div>
+    <article class="place">${placeBody(p)}</article></div>` + mapBlock([p])
+    + (others.length ? `<section><div class="wrap"><h2>${esc(c.emoji)} ${esc(c.label)}の、ほかのメモ</h2><p class="h2note"></p><div class="cards">${others.map(card).join("")}</div></div></section>` : "");
+}
+
+function odekakeBox() {
+  const d = new Date(), today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const items = (S.odekake || []).filter((o) => o.end >= today).slice(0, 6);
+  if (!items.length) return "";
+  return `<section><div class="wrap"><h2 class="hand" style="font-size:26px">今週末、どこ行く?</h2><p class="h2note">近いうちに行ける、おでかけ先を少しだけ。新しい予定は、見つけしだい足します。</p>
+    <div class="odekake">${items.map((o) => `<div class="o"><span class="when">${esc(o.when)}</span><div><h4>${esc(o.title)}${o.note ? ` <small>${esc(o.note)}</small>` : ""}</h4><p>${esc(o.place)}${o.link ? ` ・ <a href="${esc(o.link)}" target="_blank" rel="noopener">${esc(o.linkLabel)} →</a>` : ""}</p></div></div>`).join("")}</div></div></section>`;
+}
+
+function liveBox() {
+  if (!LIVE) return "";
+  const fmt = (d) => { const [, m, day] = d.split("-"); return `${+m}/${+day}`; };
+  const isYama = (i) => i.src.startsWith("筑波観光鉄道") || /筑波山|ケーブルカー|ロープウェイ/.test(i.title);
+  const link = (i) => `<a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.title)}</a>`;
+  const now = LIVE.items.filter((i) => !isYama(i)).slice(0, 5), y = LIVE.items.filter(isYama);
+  const unko = y.filter((i) => /運行/.test(i.title)).slice(0, 1);
+  const oshirase = y.filter((i) => /運賃|新車両|料金|運休/.test(i.title) && !/運行につきまして/.test(i.title)).slice(0, 2);
+  // 過ぎたイベントは出さない。イベントの日(題名の日付、なければページの「日程」から取った eventDate)で判断し、どちらもなければ発表から3週間で外す
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const evDay = (i) => {
+    if (i.eventDate) return new Date(i.eventDate + "T00:00:00");
+    const s = i.title.replace(/[０-９]/g, (d) => String.fromCharCode(d.charCodeAt(0) - 0xfee0));
+    const pub = new Date(i.date + "T00:00:00");
+    let m = s.match(/令和(\d+)年(\d+)月(\d+)日/);
+    if (m) return new Date(2018 + +m[1], m[2] - 1, +m[3]);
+    m = s.match(/(20\d\d)年(\d+)月(\d+)日/);
+    if (m) return new Date(+m[1], m[2] - 1, +m[3]);
+    m = s.match(/(\d{1,2})月(\d{1,2})日/) || s.match(/(\d{1,2})\/(\d{1,2})/);
+    if (m) { const d = new Date(pub.getFullYear(), m[1] - 1, +m[2]); if (d < pub - 60 * 864e5) d.setFullYear(d.getFullYear() + 1); return d; }
+    return null;
+  };
+  const upcoming = (i) => { const d = evDay(i); return d ? d >= today : (today - new Date(i.date + "T00:00:00")) / 864e5 <= 21; };
+  const event = y.filter((i) => /開催|ツアー|ハイク|まつり|祭/.test(i.title) && upcoming(i)).slice(0, 3);
+  const yrow = (icon, label, items) => items.length ? `<div class="yrow"><div class="yl">${icon} ${label}</div><div>${items.join("<br>")}</div></div>` : "";
+  const dated = (i) => `${link(i)} <small>(${fmt(i.date)})</small>`;
+  return `<details class="yama"><summary><b>⛰ つくば山情報</b><span class="one">${esc(S.yama.one)}</span></summary>
+      ${yrow("🍁", "今の見どころ", S.yama.season.map((x) => esc(x.text) + (x.note ? ` <small class="chk">(${esc(x.note)})</small>` : "") + (x.link ? ` <a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.linkLabel || "出どころ")} →</a>` : "")))}
+      ${yrow("🚡", "運行", unko.map(dated))}${yrow("📢", "お知らせ", oshirase.map(dated))}${yrow("🎪", "イベント", event.map((i) => i.eventDate ? `${link(i)} <small>(${fmt(i.eventDate)}に開催)</small>` : dated(i)))}
+      <div style="height:10px"></div></details>
+    <div class="src">運行・お知らせ・イベントは、筑波観光鉄道とつくば観光コンベンション協会の新着情報より(${esc(LIVE.fetched)}に取得)</div>`;
+}
+
+function home() {
+  const p = P.hero;
+  return `<div class="wrap"><div class="hero"><div class="ph" style="background-image:url('${p.src}')"></div>
+      <div class="credit">写真: ${esc(p.what)} / ${esc(p.by)} (${esc(p.lic)})</div>
+      <div class="box"><div class="sticker hand">住人が<br>書いてます</div><div class="say hand">${esc(S.say)}</div><h1>${S.catchHtml}</h1><p>${esc(S.lead)}</p></div></div></div>
+  <section><div class="wrap"><h2 class="hand" style="font-size:26px">住人が見つけた、つくばの話</h2><p class="h2note">自分が気になって、チェックしているものです。</p>
+    <div class="watch">${S.watch.map((w) => `<div class="w"><span class="when">${esc(w.when)}</span><h4>${esc(w.title)}</h4><p>${esc(w.body)}</p>${w.link ? `<a href="${esc(w.link)}" target="_blank" rel="noopener">${esc(w.linkLabel)} →</a>` : ""}</div>`).join("")}</div></div></section>
+  ${odekakeBox()}
+  <section><div class="wrap">${liveBox()}</div></section>
+  <section><div class="wrap"><h2><span class="mk">あなたに合わせて探す</span></h2><p class="h2note">あてはまるところから、どうぞ。</p>
+    <div class="tiles">${S.readers.map((r) => tile(link("for/" + r.id + "/"), r.photo, r.label, r.note)).join("")}</div></div></section>
+  <section><div class="wrap"><h2><span class="mk">知りたいことから探す</span></h2><p class="h2note">少しずつ書き足しています。</p>
+    <div class="tiles">${S.categories.map((c) => tile(link(c.id + "/"), c.photo, c.emoji + " " + c.label, "", c.ready ? (S.places.filter((x) => x.cat === c.id).length + S.tips.filter((x) => x.cat === c.id).length) + "件のメモ" : "じゅんび中", !c.ready)).join("")}</div></div></section>
+  <section><div class="wrap"><div class="tell"><div><h2 class="hand" style="font-size:24px">あなたの知っている、つくばを教えてください</h2>
+    <p>おすすめの店、イベントの予定、「ここは違うよ」という指摘も歓迎です。いただいた情報は、確かめてから載せます。</p></div>
+    <button class="tellbtn" id="tellbtn">情報を送る</button></div></div></section>`;
+}
+
+function mapBlock(places) {
+  return places.some((p) => p.spots) ? `<section><div class="wrap"><h2><span class="mk">地図で見る</span></h2><p class="h2note">ピンは、公式の住所から求めた位置です(建物の位置と少しずれることがあります)。</p><div id="map"></div></div></section>` : "";
+}
+
+const memoBlock = (tips, head) => tips.length ? `<section><div class="wrap"><h2 class="hand">${esc(head || "住んでみて思うこと")}</h2><p class="h2note"></p><div class="memo">${tips.map((t) => `<div class="item"><h4>${esc(t.title)}</h4>${esc(t.body)}${t.points ? `<ul class="tpoints">${t.points.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${t.note ? `<div class="tnote">${esc(t.note)}</div>` : ""}${t.links ? `<div class="links">${t.links.map((l) => `<a class="go" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} →</a>`).join("")}</div>` : ""}</div>`).join("")}</div></div></section>` : "";
+
+function readerPage() {
+  const r = S.readers.find((x) => x.id === state.reader), places = S.places.filter(match);
+  let html = `<div class="wrap"><div class="phead"><a class="back" href="${link("")}">← トップへ</a><div class="hand" style="color:var(--accent);font-size:17px;margin-top:10px">こんな方へ</div><h1><span class="mk">${esc(r.label)}</span></h1><p>${esc(r.note)}</p></div></div>`;
+  S.categories.forEach((c) => {
+    const list = places.filter((p) => p.cat === c.id);
+    if (list.length) html += `<section><div class="wrap"><h2>${esc(c.emoji)} ${esc(c.label)}<a class="more" href="${link(c.id + "/")}">ぜんぶ見る →</a></h2><p class="h2note"></p><div class="cards">${list.map(card).join("")}</div></div></section>`;
+  });
+  return html + memoBlock(S.tips.filter(match)) + mapBlock(places);
+}
+
+function catPage() {
+  const c = catOf(state.cat), places = S.places.filter(match);
+  let html = `<div class="wrap"><div class="phead"><a class="back" href="${link("")}">← トップへ</a><h1>${esc(c.emoji)} <span class="mk">${esc(c.label)}</span></h1>
+    ${c.ready ? `<div class="chips"><button data-reader="" class="${state.reader ? "" : "on"}">ぜんぶ</button>${S.readers.map((x) => `<button data-reader="${x.id}" class="${state.reader === x.id ? "on" : ""}">${esc(x.label)}</button>`).join("")}</div>` : ""}</div></div>`;
+  if (!c.ready) return html + `<section><div class="wrap"><div class="soonbox hand">ここは、じゅんび中です。<br>書けることがたまったら載せます。</div></div></section>`;
+  html += `<section style="padding-top:28px"><div class="wrap">${places.length ? `<div class="cards">${places.map(card).join("")}</div>` : S.tips.filter(match).length ? "" : `<div class="soonbox hand">まだ書けていません。</div>`}</div></section>`;
+  return html + memoBlock(S.tips.filter(match), c.memo) + mapBlock(places);
+}
+
+function drawMap() {
+  if (map) { map.remove(); map = null; }
+  if (!$("map") || !window.L) return;
+  const pins = [];
+  (state.place ? S.places.filter((p) => p.id === state.place) : S.places.filter(match)).forEach((p) => (p.spots || []).forEach((s) => pins.push({ p, s })));
+  if (!pins.length) return;
+  map = L.map("map", { scrollWheelZoom: false });
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors' }).addTo(map);
+  pins.forEach(({ p, s }) => L.marker([s.lat, s.lng]).addTo(map).bindPopup(`<b><a href="${link("place/" + p.id + "/")}">${esc(p.name)}</a></b><br>${esc(s.label)}<br><small>${esc(p.sum)}</small>`));
+  map.fitBounds(pins.map(({ s }) => [s.lat, s.lng]), { padding: [40, 40], maxZoom: 15 });
+}
+
+function closeNav() { $("nav").hidden = true; $("burger").setAttribute("aria-expanded", "false"); $("burger").setAttribute("aria-label", "メニューを開く"); }
+
+function render(keepScroll) {
+  $("menu").innerHTML = S.categories.map((c) => `<a href="${link(c.id + "/")}" class="${state.cat === c.id ? "on" : ""}">${esc(c.label)}</a>`).join("");
+  $("nav").innerHTML = `<div class="nl hand">知りたいことから探す</div><div class="ng">${S.categories.map((c) => `<a href="${link(c.id + "/")}" class="${state.cat === c.id ? "on" : ""}">${esc(c.emoji)} ${esc(c.label)}</a>`).join("")}</div>
+    <div class="nl hand">あなたに合わせて探す</div><div class="ng">${S.readers.map((r) => `<a href="${link("for/" + r.id + "/")}" class="${!state.cat && state.reader === r.id ? "on" : ""}">${esc(r.label)}</a>`).join("")}</div>
+    <button class="navtell" id="navtell" type="button">つくばの情報を送る</button>`;
+  $("navtell").onclick = () => { closeNav(); openTell(); };
+  closeNav();
+  $("view").innerHTML = state.place ? placePage() : state.cat ? catPage() : state.reader ? readerPage() : home();
+  // 分野のページの中での絞りこみ(子育て中の方、など)は、ページを移らずに切りかえる
+  $("view").querySelectorAll("button[data-reader]").forEach((b) => b.onclick = () => { state = { cat: state.cat, reader: b.dataset.reader || null, place: null }; render(true); });
+  if ($("tellbtn")) $("tellbtn").onclick = openTell;
+  if ($("footmail")) { $("footmail").textContent = S.mail; $("footpolicy").onclick = (e) => { e.preventDefault(); openTell(); }; if ($("footga")) $("footga").onclick = (e) => { e.preventDefault(); openTell(); }; }
+  drawMap();
+  if (!keepScroll) window.scrollTo(0, 0);
+}
+
+$("logo").innerHTML = S.logoHtml;
+$("logo").href = link("");
+$("burger").onclick = () => {
+  const open = $("nav").hidden;
+  $("nav").hidden = !open;
+  $("burger").setAttribute("aria-expanded", String(open));
+  $("burger").setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+};
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeNav(); });
+if (ROOT === undefined) window.addEventListener("hashchange", () => { state = readRoute(); render(); });
+$("dlg").addEventListener("click", (e) => { if (e.target === $("dlg")) $("dlg").close(); });
+$("upd").textContent = S.updated;
+const LIC = { "CC BY-SA 3.0": "https://creativecommons.org/licenses/by-sa/3.0/", "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/", "CC BY 2.0": "https://creativecommons.org/licenses/by/2.0/", "CC BY 3.0": "https://creativecommons.org/licenses/by/3.0/", "CC0": "https://creativecommons.org/publicdomain/zero/1.0/" };
+$("credits").innerHTML = "写真(ウィキメディア・コモンズより): " + Object.values(P).filter((p) => !p.own).map((p) => `<a href="${p.page}" target="_blank" rel="noopener">${esc(p.what)}</a> ${esc(p.by)} / ${LIC[p.lic] ? `<a href="${LIC[p.lic]}" target="_blank" rel="noopener">${esc(p.lic)}</a>` : esc(p.lic)}`).join(" ・ ") + '。写真は、画面に合わせて一部を切り抜いて表示しています。それぞれの写真は、元と同じライセンスで利用できます。「つくばノート撮影」と書いた写真は、このサイトで撮ったものです。 ・ 地図: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>';
+render();
+</script>
+</body>
+</html>
