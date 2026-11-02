@@ -5,8 +5,14 @@ window.LIVE = {
   "つくば観光コンベンション協会",
   "筑波観光鉄道(ケーブルカー・ロープウェイ)"
  ],
- "fetched": "2026-11-02",
+ "fetched": "2026-11-03",
  "items": [
+  {
+   "date": "2026-11-02",
+   "title": "筑波山紅葉情報(2026年11月2日現在)",
+   "url": "https://ttca.jp/autumn-leaves-info2026/",
+   "src": "観光コンベンション協会"
+  },
   {
    "date": "2026-11-01",
    "title": "11月1日 16時現在 筑波山方面駐車場情報・交通情報",
@@ -72,12 +78,6 @@ window.LIVE = {
    "title": "【令和8年12月5日（土曜日）～7日（月曜日）】並木交流センター臨時休館のお知らせ",
    "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/shimimbuchiikisiennka/gyomuannai/kyukan/29850.html",
    "src": "つくば市"
-  },
-  {
-   "date": "2026-10-28",
-   "title": "筑波山紅葉情報(2026年10月28日現在)",
-   "url": "https://ttca.jp/autumn-leaves-info2026/",
-   "src": "観光コンベンション協会"
   },
   {
    "date": "2026-10-28",
