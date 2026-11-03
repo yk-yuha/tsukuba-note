@@ -8,6 +8,24 @@ window.LIVE = {
  "fetched": "2026-11-03",
  "items": [
   {
+   "date": "2026-11-03",
+   "title": "11月3日 11時現在 筑波山方面駐車場情報・交通情報",
+   "url": "https://ttca.jp/11%e6%9c%883%e6%97%a5-11%e6%99%82%e7%8f%be%e5%9c%a8-%e7%ad%91%e6%b3%a2%e5%b1%b1%e6%96%b9%e9%9d%a2%e9%a7%90%e8%bb%8a%e5%a0%b4%e6%83%85%e5%a0%b1%e3%83%bb%e4%ba%a4%e9%80%9a%e6%83%85%e5%a0%b1-3/",
+   "src": "観光コンベンション協会"
+  },
+  {
+   "date": "2026-11-03",
+   "title": "11月3日 10時現在 筑波山方面駐車場情報・交通情報",
+   "url": "https://ttca.jp/11%e6%9c%883%e6%97%a5-10%e6%99%82%e7%8f%be%e5%9c%a8-%e7%ad%91%e6%b3%a2%e5%b1%b1%e6%96%b9%e9%9d%a2%e9%a7%90%e8%bb%8a%e5%a0%b4%e6%83%85%e5%a0%b1%e3%83%bb%e4%ba%a4%e9%80%9a%e6%83%85%e5%a0%b1-2/",
+   "src": "観光コンベンション協会"
+  },
+  {
+   "date": "2026-11-03",
+   "title": "11月3日 9時現在 筑波山方面駐車場情報・交通情報",
+   "url": "https://ttca.jp/11%e6%9c%883%e6%97%a5-9%e6%99%82%e7%8f%be%e5%9c%a8-%e7%ad%91%e6%b3%a2%e5%b1%b1%e6%96%b9%e9%9d%a2%e9%a7%90%e8%bb%8a%e5%a0%b4%e6%83%85%e5%a0%b1%e3%83%bb%e4%ba%a4%e9%80%9a%e6%83%85%e5%a0%b1-3/",
+   "src": "観光コンベンション協会"
+  },
+  {
    "date": "2026-11-02",
    "title": "筑波山紅葉情報(2026年11月2日現在)",
    "url": "https://ttca.jp/autumn-leaves-info2026/",
@@ -50,18 +68,6 @@ window.LIVE = {
    "src": "観光コンベンション協会"
   },
   {
-   "date": "2026-11-01",
-   "title": "１１月１日 １０時現在 筑波山方面駐車場情報・交通情報",
-   "url": "https://ttca.jp/%ef%bc%91%ef%bc%91%e6%9c%88%ef%bc%91%e6%97%a5-%ef%bc%91%ef%bc%90%e6%99%82%e7%8f%be%e5%9c%a8-%e7%ad%91%e6%b3%a2%e5%b1%b1%e6%96%b9%e9%9d%a2%e9%a7%90%e8%bb%8a%e5%a0%b4%e6%83%85%e5%a0%b1%e3%83%bb%e4%ba%a4/",
-   "src": "観光コンベンション協会"
-  },
-  {
-   "date": "2026-11-01",
-   "title": "11月1日9時現在 筑波山方面駐車場情報・交通情報",
-   "url": "https://ttca.jp/11%e6%9c%881%e6%97%a59%e6%99%82%e7%8f%be%e5%9c%a8-%e7%ad%91%e6%b3%a2%e5%b1%b1%e6%96%b9%e9%9d%a2%e9%a7%90%e8%bb%8a%e5%a0%b4%e6%83%85%e5%a0%b1%e3%83%bb%e4%ba%a4%e9%80%9a%e6%83%85%e5%a0%b1/",
-   "src": "観光コンベンション協会"
-  },
-  {
    "date": "2026-10-30",
    "title": "5代目筑波山ケーブルカー ラストランキャンペーンを開催します",
    "url": "https://mt-tsukuba.com/5%e4%bb%a3%e7%9b%ae%e7%ad%91%e6%b3%a2%e5%b1%b1%e3%82%b1%e3%83%bc%e3%83%96%e3%83%ab%e3%82%ab%e3%83%bc-%e3%83%a9%e3%82%b9%e3%83%88%e3%83%a9%e3%83%b3%e3%82%ad%e3%83%a3%e3%83%b3%e3%83%9a%e3%83%bc%e3%83%b3/",
@@ -78,12 +84,6 @@ window.LIVE = {
    "title": "【令和8年12月5日（土曜日）～7日（月曜日）】並木交流センター臨時休館のお知らせ",
    "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/shimimbuchiikisiennka/gyomuannai/kyukan/29850.html",
    "src": "つくば市"
-  },
-  {
-   "date": "2026-10-28",
-   "title": "【11/22】つくばマラソン開催に伴う「筑波山シャトルバス」運休と代替便のご案内",
-   "url": "https://ttca.jp/ttca-jp-tsukuba-marathon-2026-01/",
-   "src": "観光コンベンション協会"
   },
   {
    "date": "2026-10-27",
