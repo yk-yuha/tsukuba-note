@@ -8,6 +8,12 @@ window.LIVE = {
  "fetched": "2026-11-06",
  "items": [
   {
+   "date": "2026-11-06",
+   "title": "筑波山紅葉情報(2026年11月6日現在)",
+   "url": "https://ttca.jp/autumn-leaves-info2026/",
+   "src": "観光コンベンション協会"
+  },
+  {
    "date": "2026-11-04",
    "title": "「５代目筑波山ケーブルカー」の譲渡契約を締結しました",
    "url": "https://mt-tsukuba.com/%e3%80%9010-1%ef%bd%9e%e3%80%91%e7%ad%91%e6%b3%a2%e5%b1%b1%e3%82%b1%e3%83%bc%e3%83%96%e3%83%ab%e3%82%ab%e3%83%bc%e6%97%85%e5%ae%a2%e9%81%8b%e8%b3%83%e3%81%ae%e6%94%b9%e5%ae%9a%e3%81%ab%e3%81%a4-2/",
@@ -60,12 +66,6 @@ window.LIVE = {
    "title": "筑波山紅葉情報",
    "url": "https://mt-tsukuba.com/%e7%ad%91%e6%b3%a2%e5%b1%b1%e7%b4%85%e8%91%89%e6%83%85%e5%a0%b1/",
    "src": "筑波観光鉄道"
-  },
-  {
-   "date": "2026-11-02",
-   "title": "筑波山紅葉情報(2026年11月2日現在)",
-   "url": "https://ttca.jp/autumn-leaves-info2026/",
-   "src": "観光コンベンション協会"
   },
   {
    "date": "2026-11-01",
