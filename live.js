@@ -8,6 +8,12 @@ window.LIVE = {
  "fetched": "2026-11-13",
  "items": [
   {
+   "date": "2026-11-13",
+   "title": "筑波山紅葉情報(2026年11月１３日現在)",
+   "url": "https://ttca.jp/autumn-leaves-info2026/",
+   "src": "観光コンベンション協会"
+  },
+  {
    "date": "2026-11-09",
    "title": "WEB版「月刊ezpress.11月号」",
    "url": "https://ttca.jp/web%e7%89%88%e3%80%8c%e6%9c%88%e5%88%8aezpress-11%e6%9c%88%e5%8f%b7%e3%80%8d/",
@@ -59,12 +65,6 @@ window.LIVE = {
    "date": "2026-11-08",
    "title": "11月8日 9時現在 筑波山方面駐車場情報・交通情報",
    "url": "https://ttca.jp/11%e6%9c%888%e6%97%a5-9%e6%99%82%e7%8f%be%e5%9c%a8-%e7%ad%91%e6%b3%a2%e5%b1%b1%e6%96%b9%e9%9d%a2%e9%a7%90%e8%bb%8a%e5%a0%b4%e6%83%85%e5%a0%b1%e3%83%bb%e4%ba%a4%e9%80%9a%e6%83%85%e5%a0%b1/",
-   "src": "観光コンベンション協会"
-  },
-  {
-   "date": "2026-11-07",
-   "title": "11月7日 16時現在 筑波山方面駐車場情報・交通情報",
-   "url": "https://ttca.jp/11%e6%9c%887%e6%97%a5-16%e6%99%82%e7%8f%be%e5%9c%a8-%e7%ad%91%e6%b3%a2%e5%b1%b1%e6%96%b9%e9%9d%a2%e9%a7%90%e8%bb%8a%e5%a0%b4%e6%83%85%e5%a0%b1%e3%83%bb%e4%ba%a4%e9%80%9a%e6%83%85%e5%a0%b1/",
    "src": "観光コンベンション協会"
   },
   {
