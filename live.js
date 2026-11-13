@@ -9,7 +9,13 @@ window.LIVE = {
  "items": [
   {
    "date": "2026-11-13",
-   "title": "筑波山紅葉情報(2026年11月１３日現在)",
+   "title": "【つくばで地産地消！農業体験イベント参加者募集】菊芋収穫体験",
+   "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/keizaibunogyoseisakuka/gyomuannai/7/19183.html",
+   "src": "つくば市"
+  },
+  {
+   "date": "2026-11-13",
+   "title": "筑波山紅葉情報(2026年11月13日現在)",
    "url": "https://ttca.jp/autumn-leaves-info2026/",
    "src": "観光コンベンション協会"
   },
