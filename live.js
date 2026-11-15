@@ -9,9 +9,21 @@ window.LIVE = {
  "items": [
   {
    "date": "2026-11-15",
+   "title": "１１月１５日 １０時現在 筑波山方面駐車場情報・交通情報",
+   "url": "https://ttca.jp/%ef%bc%91%ef%bc%91%e6%9c%88%ef%bc%91%ef%bc%95%e6%97%a5-%ef%bc%91%ef%bc%90%e6%99%82%e7%8f%be%e5%9c%a8-%e7%ad%91%e6%b3%a2%e5%b1%b1%e6%96%b9%e9%9d%a2%e9%a7%90%e8%bb%8a%e5%a0%b4%e6%83%85%e5%a0%b1-2/",
+   "src": "観光コンベンション協会"
+  },
+  {
+   "date": "2026-11-15",
    "title": "１１月１５日 ９時現在 筑波山方面駐車場情報・交通情報",
    "url": "https://ttca.jp/%ef%bc%91%ef%bc%91%e6%9c%88%ef%bc%91%ef%bc%95%e6%97%a5-%ef%bc%99%e6%99%82%e7%8f%be%e5%9c%a8-%e7%ad%91%e6%b3%a2%e5%b1%b1%e6%96%b9%e9%9d%a2%e9%a7%90%e8%bb%8a%e5%a0%b4%e6%83%85%e5%a0%b1%e3%83%bb%e4%ba%a4/",
    "src": "観光コンベンション協会"
+  },
+  {
+   "date": "2026-11-15",
+   "title": "筑波山紅葉情報",
+   "url": "https://mt-tsukuba.com/%e7%ad%91%e6%b3%a2%e5%b1%b1%e7%b4%85%e8%91%89%e6%83%85%e5%a0%b1/",
+   "src": "筑波観光鉄道"
   },
   {
    "date": "2026-11-14",
@@ -68,21 +80,9 @@ window.LIVE = {
    "src": "つくば市"
   },
   {
-   "date": "2026-11-13",
-   "title": "筑波山紅葉情報(2026年11月13日現在)",
-   "url": "https://ttca.jp/autumn-leaves-info2026/",
-   "src": "観光コンベンション協会"
-  },
-  {
    "date": "2026-11-04",
    "title": "「５代目筑波山ケーブルカー」の譲渡契約を締結しました",
    "url": "https://mt-tsukuba.com/%e3%80%9010-1%ef%bd%9e%e3%80%91%e7%ad%91%e6%b3%a2%e5%b1%b1%e3%82%b1%e3%83%bc%e3%83%96%e3%83%ab%e3%82%ab%e3%83%bc%e6%97%85%e5%ae%a2%e9%81%8b%e8%b3%83%e3%81%ae%e6%94%b9%e5%ae%9a%e3%81%ab%e3%81%a4-2/",
-   "src": "筑波観光鉄道"
-  },
-  {
-   "date": "2026-11-03",
-   "title": "筑波山紅葉情報",
-   "url": "https://mt-tsukuba.com/%e7%ad%91%e6%b3%a2%e5%b1%b1%e7%b4%85%e8%91%89%e6%83%85%e5%a0%b1/",
    "src": "筑波観光鉄道"
   },
   {
