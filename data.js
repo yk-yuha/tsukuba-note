@@ -62,6 +62,8 @@ window.SITE = {
   ],
 
   odekake: [
+    { end: "2026-11-19", when: "11月19日(木)", title: "アンサンブル・アジュール 18th Concert", place: "つくばカピオ ホール", note: "無料", link: "https://www.tcf.or.jp/exhibition/", linkLabel: "つくばカピオのイベント案内" },
+    { end: "2026-11-28", when: "11月28日(土)", title: "つくば科学フェスティバル2026", place: "つくばカピオ アリーナ", note: "無料", link: "https://www.tcf.or.jp/exhibition/", linkLabel: "つくばカピオのイベント案内" },
     { end: "2026-11-30", when: "10月24日(土)〜11月30日(月)", title: "筑波山もみじまつり・竹あかり", place: "筑波山(筑波山神社のあたりなど)", note: "竹あかりは17時〜20時", link: "https://ttca.jp/autumnmttsukuba/", linkLabel: "観光コンベンション協会" },
     { end: "2026-10-25", when: "10月25日(日)", title: "トナリエハロウィン2026", place: "トナリエつくばスクエア(つくば駅前)", note: "", link: "https://tonarie-tsukuba.jp/event/", linkLabel: "施設のイベント案内" },
     { end: "2026-10-29", when: "10月29日(木)", title: "わくわく♪ファミリーコンサート 〜親子で楽しむ金管演奏〜", place: "つくばカピオ アリーナ", note: "無料(要問合せ)", link: "https://www.tcf.or.jp/exhibition/", linkLabel: "つくばカピオのイベント案内" },
