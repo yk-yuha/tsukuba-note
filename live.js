@@ -5,7 +5,7 @@ window.LIVE = {
   "つくば観光コンベンション協会",
   "筑波観光鉄道(ケーブルカー・ロープウェイ)"
  ],
- "fetched": "2026-11-20",
+ "fetched": "2026-11-21",
  "items": [
   {
    "date": "2026-11-20",
@@ -74,6 +74,12 @@ window.LIVE = {
    "src": "観光コンベンション協会"
   },
   {
+   "date": "2026-11-13",
+   "title": "【つくばで地産地消！農業体験イベント参加者募集】菊芋収穫体験",
+   "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/keizaibunogyoseisakuka/gyomuannai/7/19183.html",
+   "src": "つくば市"
+  },
+  {
    "date": "2026-11-04",
    "title": "「５代目筑波山ケーブルカー」の譲渡契約を締結しました",
    "url": "https://mt-tsukuba.com/%e3%80%9010-1%ef%bd%9e%e3%80%91%e7%ad%91%e6%b3%a2%e5%b1%b1%e3%82%b1%e3%83%bc%e3%83%96%e3%83%ab%e3%82%ab%e3%83%bc%e6%97%85%e5%ae%a2%e9%81%8b%e8%b3%83%e3%81%ae%e6%94%b9%e5%ae%9a%e3%81%ab%e3%81%a4-2/",
@@ -90,6 +96,12 @@ window.LIVE = {
    "title": "11月特別ダイヤのお知らせ",
    "url": "https://mt-tsukuba.com/11%e6%9c%88%e7%89%b9%e5%88%a5%e3%83%80%e3%82%a4%e3%83%a4%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/",
    "src": "筑波観光鉄道"
+  },
+  {
+   "date": "2026-10-29",
+   "title": "【令和8年12月5日（土曜日）～7日（月曜日）】並木交流センター臨時休館のお知らせ",
+   "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/shimimbuchiikisiennka/gyomuannai/kyukan/29850.html",
+   "src": "つくば市"
   },
   {
    "date": "2026-10-27",
