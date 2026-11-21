@@ -368,7 +368,7 @@ function home() {
       <div class="credit">写真: ${esc(p.what)} / ${esc(p.by)} (${esc(p.lic)})</div>
       <div class="box"><div class="sticker hand">住人が<br>書いてます</div><div class="say hand">${esc(S.say)}</div><h1>${S.catchHtml}</h1><p>${esc(S.lead)}</p></div></div></div>
   <section><div class="wrap"><h2 class="hand" style="font-size:26px">住人が見つけた、つくばの話</h2><p class="h2note">自分が気になって、チェックしているものです。</p>
-    <div class="watch">${S.watch.map((w) => `<div class="w"><span class="when">${esc(w.when)}</span><h4>${esc(w.title)}</h4><p>${esc(w.body)}</p>${w.link ? `<a href="${esc(w.link)}" target="_blank" rel="noopener">${esc(w.linkLabel)} →</a>` : ""}</div>`).join("")}</div></div></section>
+    <div class="watch">${S.watch.filter((w) => !w.end || w.end >= new Date().toLocaleDateString("sv-SE")).map((w) => `<div class="w"><span class="when">${esc(w.when)}</span><h4>${esc(w.title)}</h4><p>${esc(w.body)}</p>${w.link ? `<a href="${esc(w.link)}" target="_blank" rel="noopener">${esc(w.linkLabel)} →</a>` : ""}${w.link2 ? ` <a href="${esc(w.link2)}" target="_blank" rel="noopener">${esc(w.link2Label)} →</a>` : ""}</div>`).join("")}</div></div></section>
   ${odekakeBox()}
   <section><div class="wrap">${liveBox()}</div></section>
   <section><div class="wrap"><h2><span class="mk">あなたに合わせて探す</span></h2><p class="h2note">あてはまるところから、どうぞ。</p>

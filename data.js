@@ -56,12 +56,20 @@ window.SITE = {
   },
 
   watch: [
+    { when: "11月22日(日)", end: "2026-11-22", title: "あした11月22日(日)は、つくばマラソン。市内で大きな交通規制",
+      body: "会場はつくば市役所(研究学園駅から歩いて7分)です。当日は市内で大規模な交通規制があり、渋滞が予想されます。大会の公式ページには、規制の場所を地図で示したPDFと、規制をよけて走れる車のう回ルートを調べられる検索があります。つくバスも、北部シャトルや南部シャトルなど7路線で、一部の便が運休したり、研究学園駅・つくばセンターに入らなかったりします。大会用の駐車場はありません。",
+      link: "https://www.tsukuba-marathon.com/page/page000241.html", linkLabel: "交通規制とう回ルート検索(大会公式)",
+      link2: "https://www.city.tsukuba.lg.jp/kurashi/kotsu/bus/14301.html", link2Label: "つくバスの運休(市)" },
+    { when: "2027年4月(予定)", title: "学園の森1丁目に、ドラッグストア「クリエイト」ができる予定",
+      body: "ブランデ研究学園店の近くで工事が進んでいる場所は、ドラッグストア「クリエイト」の予定地です。県に出された届け出では、開店は2027年4月13日の予定で、営業は9時〜21時45分、駐車場は67台です(届け出の時点の予定で、実際の開店日は変わることがあります)。",
+      link: "https://www.pref.ibaraki.jp/shokorodo/chusho/shogyo/daiten/todokedejokyo.html", linkLabel: "茨城県の届け出の一覧" },
     { when: "10月25日(日)", title: "「そよら つくば学園の森」がオープン",
       body: "研究学園駅から北へ約1.9km、サイエンス大通り沿いに、イオンの新しい商業施設がオープンしました。行ってみた様子は、「スーパー・買い物」の「そよら つくば学園の森」に載せています。",
       link: "https://prtimes.jp/main/html/rd/p/000006114.000007505.html", linkLabel: "運営会社の発表" },
   ],
 
   odekake: [
+    { end: "2026-11-22", when: "11月22日(日)", title: "第46回つくばマラソン", place: "つくば市役所(研究学園駅から徒歩7分)", note: "市内で交通規制あり", link: "https://www.tsukuba-marathon.com/", linkLabel: "大会公式" },
     { end: "2026-11-19", when: "11月19日(木)", title: "アンサンブル・アジュール 18th Concert", place: "つくばカピオ ホール", note: "無料", link: "https://www.tcf.or.jp/exhibition/", linkLabel: "つくばカピオのイベント案内" },
     { end: "2026-11-28", when: "11月28日(土)", title: "つくば科学フェスティバル2026", place: "つくばカピオ アリーナ", note: "無料", link: "https://www.tcf.or.jp/exhibition/", linkLabel: "つくばカピオのイベント案内" },
     { end: "2026-11-30", when: "10月24日(土)〜11月30日(月)", title: "筑波山もみじまつり・竹あかり", place: "筑波山(筑波山神社のあたりなど)", note: "竹あかりは17時〜20時", link: "https://ttca.jp/autumnmttsukuba/", linkLabel: "観光コンベンション協会" },
