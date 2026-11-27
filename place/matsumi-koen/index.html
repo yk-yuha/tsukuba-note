@@ -180,6 +180,22 @@ if (location.hostname === "tsukuba-note.com") {
   .odekake h4 small { font-size:12px; font-weight:700; color:var(--good); margin-left:6px; }
   .odekake p { margin:2px 0 0; font-size:13px; color:var(--sub); }
   @media (max-width:560px) { .odekake .o { flex-direction:column; gap:2px; } }
+  .wx { display:flex; flex-wrap:wrap; align-items:stretch; gap:10px 0; padding:12px 0; border-top:1px solid #eadfcb; border-bottom:1px solid #eadfcb; }
+  .wxlabel { font-size:17px; font-weight:700; color:var(--sub); align-self:center; padding-right:22px; }
+  .wdays { display:flex; flex-wrap:wrap; flex:1 1 auto; }
+  .wx .wd { padding:0 22px; border-left:1px solid #eadfcb; }
+  .wx .wtop { display:flex; align-items:center; gap:12px; }
+  .wx .wtop b { font-size:15px; } .wx .wtop b small { font-size:12px; font-weight:700; margin-left:1px; }
+  .wx .ic { display:inline-flex; gap:5px; }
+  .wx .ic i { font-style:normal; font-size:20px; line-height:1; display:inline-flex; flex-direction:column; align-items:center; }
+  .wx .ic small { font-size:9.5px; color:var(--sub); margin-top:2px; }
+  .wx .tmp { font-size:15px; font-weight:700; white-space:nowrap; }
+  .wx .tmp { display:inline-flex; gap:10px; } .wx .tmp .hi { color:#d0603a; } .wx .tmp .lo { color:#4f86a6; } .wx .tmp small { font-size:10.5px; font-weight:700; margin-right:2px; color:var(--sub); }
+  .wx .past { opacity:.7; }
+  .wx .tmp em { font-style:normal; font-size:9.5px; color:var(--sub); margin-left:2px; }
+  .wx .pop { font-size:12px; color:var(--sub); margin-top:4px; white-space:nowrap; }
+  .wxsrc { font-size:11px; color:var(--sub); margin:6px 0 16px; text-align:right; }
+  @media (max-width:560px) { .wxlabel { flex:1 0 100%; padding:0; } .wdays { flex-direction:column; gap:10px; } .wx .wd { padding:0; border-left:0; } .wxsrc { text-align:left; } }
   .checked { font-size:12px; color:var(--sub); margin-top:12px; border-top:2px dotted var(--soft); padding-top:10px; }
 
   footer { margin-top:88px; padding:36px 0 44px; font-size:13px; color:var(--sub); border-top:3px dotted var(--soft); }
@@ -324,9 +340,27 @@ function placePage() {
 function odekakeBox() {
   const d = new Date(), today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   const items = (S.odekake || []).filter((o) => o.end >= today).slice(0, 6);
-  if (!items.length) return "";
+  const wx = weatherRow(today);
+  if (!items.length && !wx) return "";
   return `<section><div class="wrap"><h2 class="hand" style="font-size:26px">今週末、どこ行く?</h2><p class="h2note">近いうちに行ける、おでかけ先を少しだけ。新しい予定は、見つけしだい足します。</p>
-    <div class="odekake">${items.map((o) => `<div class="o"><span class="when">${esc(o.when)}</span><div><h4>${esc(o.title)}${o.note ? ` <small>${esc(o.note)}</small>` : ""}</h4><p>${esc(o.place)}${o.link ? ` ・ <a href="${esc(o.link)}" target="_blank" rel="noopener">${esc(o.linkLabel)} →</a>` : ""}</p></div></div>`).join("")}</div></div></section>`;
+    ${wx}<div class="odekake">${items.map((o) => `<div class="o"><span class="when">${esc(o.when)}</span><div><h4>${esc(o.title)}${o.note ? ` <small>${esc(o.note)}</small>` : ""}</h4><p>${esc(o.place)}${o.link ? ` ・ <a href="${esc(o.link)}" target="_blank" rel="noopener">${esc(o.linkLabel)} →</a>` : ""}</p></div></div>`).join("")}</div></div></section>`;
+}
+
+function weatherRow(today) {
+  const w = LIVE && LIVE.weather;
+  if (!w || !w.days) return "";
+  const age = (Date.now() - new Date(w.report + ":00+09:00").getTime()) / 864e5;
+  const dd = new Date(), yest = new Date(dd.getTime() - 864e5);
+  const ymd = (t) => `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`;
+  const from = dd.getDay() === 0 ? ymd(yest) : today;  // 日曜は、きのう(土曜)の実際の気温も残す
+  const days = w.days.filter((x) => x.date >= from);
+  if (age > 2 || !days.length) return "";
+  const md = (s) => `${+s.slice(5, 7)}/${+s.slice(8, 10)}`;
+  const ICON = { "晴れ": "☀️", "くもり": "☁️", "雨": "☔", "雪": "⛄" };
+  const title = (x) => x.am ? (x.am === x.pm ? `午前も午後も${x.am}` : `午前${x.am}、午後${x.pm}`) : x.main;
+  const icons = (x) => x.am ? `<i>${ICON[x.am]}<small>午前</small></i><i>${ICON[x.pm]}<small>午後</small></i>` : `<i>${ICON[x.main]}<small>1日</small></i>`;
+  const temp = (x) => x.hi == null && x.lo == null ? "" : `<span class="tmp">${x.hi != null ? `<span class="hi"><small>最高</small>${x.hi}°</span>` : ""}${x.lo != null ? `<span class="lo"><small>最低</small>${x.lo}°</span>` : ""}</span>`;
+  return `<div class="wx"><span class="wxlabel hand">週末の空</span><div class="wdays">${days.map((x) => `<div class="wd${x.obs ? " past" : ""}"><div class="wtop"><b>${md(x.date)}<small>(${x.dow})</small></b><span class="ic" role="img" aria-label="${esc(title(x))}">${icons(x)}</span>${temp(x)}</div>${x.obs ? "" : x.pops && x.pops.length ? `<div class="pop">降水 ${x.pops.map((p) => `${esc(p.label)} ${p.pop}%`).join("　")}</div>` : ""}</div>`).join("")}</div></div><p class="wxsrc">天気は気象庁の予報(茨城県南部。${esc(w.reportLabel)}発表)。気温の予報は土浦、観測はアメダスつくば${days.some((x) => x.src === "県") ? "、先の日は茨城県全体の週間予報(気温は水戸)" : ""}。</p>`;
 }
 
 function liveBox() {
